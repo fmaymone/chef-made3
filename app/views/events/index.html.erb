@@ -1,0 +1,33 @@
+<div class="row">
+	<div class="col-md-3">
+		<ul class="sidebar-list">
+			<li class="sidebar-item"><%= link_to "Seus Eventos", events_path, class: "sidebar-link active" %></li>
+			<li class="sidebar-item"><%= link_to "Seus Trabalhos", events_path, class: "sidebar-link" %></li>
+		</ul>
+	</div>
+	<div class="col-md-9">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				Eventos
+			</div>
+			<div class="panel-body">
+				
+				<% @events.each do |event| %>
+					<div class="row">
+						<div class="col-md-2">
+							<%= image_tag event.photos[0].image.url(:thumb) if event.photos.length > 0 %>
+						</div>		
+						<div class="col-md-7">
+							<h4><%= event.event_name %></h4>
+						</div>		
+						<div class="col-md-3 right">
+							<%= link_to "Update", edit_event_path(event), class: "btn btn-primary" %>
+						</div>		
+					</div>
+					<hr>
+				<% end %>
+
+			</div>
+		</div>
+	</div>
+</div>
