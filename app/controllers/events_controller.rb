@@ -30,6 +30,7 @@ class EventsController < ApplicationController
       @photos = @event.photos
       redirect_to edit_event_path(@event), notice: "Salvo"
     else
+      flash[:alert] = "Por favor forneça todos os dados necessários pro evento"
       render :new
     end
   end
@@ -47,6 +48,7 @@ class EventsController < ApplicationController
       
       redirect_to edit_event_path(@event), notice: "Atualizado"
     else
+      flash[:alert] = "Por favor forneça todos os dados necessários pro evento"
       render :edit
     end
   end

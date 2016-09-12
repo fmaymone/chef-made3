@@ -2,6 +2,9 @@ class Event < ActiveRecord::Base
   belongs_to :user
   has_many :photos
   
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
+  
   validates :event_type, presence:true
   validates :number_people, presence:true
   validates :summary, presence:true

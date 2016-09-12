@@ -1,2 +1,165 @@
-<h1>Events#show</h1>
-<p>Find me in app/views/events/show.html.erb</p>
+<div class="panel panel-default">
+	<div class="panel-body">
+		
+		<!-- Image -->
+		<div class="row">
+			<div class="col-md-12">
+				<%= image_tag @photos[0].image.url(), class: "img-responsive" if @photos.length > 0 %>
+			</div>
+		</div>
+
+		<br>
+
+		<!-- Main Info -->
+		<div class="row">
+			<div class="col-md-8">
+				<div class="row">
+					<div class="col-md-3 text-center">
+						<%= image_tag avatar_url(@event.user), class: "img-circle avatar-large" %><br><br>
+						<%= @event.user.fullname %>
+					</div>
+
+					<div class="col-md-9">
+						<h4><%= @event.event_name %></h4>
+						<%= @event.address %>
+
+						<div class="row text-center row-space-1">
+							<div class="col-sm-3">
+								<i class="fa fa-home fa-2x"></i>
+							</div>
+							<div class="col-sm-3">
+								<i class="fa fa-users fa-2x"></i>
+							</div>
+						
+						</div>
+
+						<div class="row text-center">
+							<div class="col-sm-3">
+								<%= @event.event_type %>
+							</div>
+							<div class="col-sm-3">
+								<%= @event.number_people %>
+							</div>
+						
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-4">
+				<!-- Reservation form -->	
+			</div>
+		</div>
+
+		<!-- About -->
+		<div class="row">
+			<div class="col-md-12">
+				<h2>Sobre este evento</h2>
+				<p><%= @event.summary %></p>
+			</div>
+		</div>
+
+		<!-- Amenities -->
+		
+
+		<!-- Carousel -->
+		<div class="row">
+			<div class="col-md-10 col-md-offset-1">
+				<div id="myCarousel" class="carousel slide" data-ride="carousel">
+				  
+					<% if @photos %>
+						<!-- Indicators -->
+				    <ol class="carousel-indicators">
+							<% @photos.each do |photo| %>
+								<li data-target="#myCarousel" data-slide-to="<%= photo.id %>"></li>
+							<% end %>	
+						</ol>				
+					<% end %>     
+
+				  <div class="carousel-inner" role="listbox">
+				    <% if @photos %>				
+							<% @photos.each do |photo| %>
+								<div class="item <%= 'active' if photo.id == @photos[0].id %>">          
+				          <%= image_tag photo.image.url() %>
+				        </div>
+							<% end %>	
+						<% end %>
+				  </div>
+
+				  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+				    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+				    <span class="sr-only">Previous</span>
+				  </a>
+				  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+				    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+				    <span class="sr-only">Next</span>
+				  </a>
+				</div>
+			</div>
+		</div>
+
+		<br>
+		<hr>
+
+		<!-- Google Map -->
+		<div class="row">
+			<div class="col-md-12">
+				
+				<div id="map"></div>
+
+				<style>
+		      #map {
+		        width: 100%;
+		        height: 400px;
+		      }
+		    </style>
+
+		    <script src="https://maps.googleapis.com/maps/api/js"></script>
+		    <script>
+		      function initialize() {
+		        var mapCanvas = document.getElementById('map');
+		        var mapOptions = {
+		          center: new google.maps.LatLng(<%= @event.latitude %>, <%= @event.longitude %>),
+		          zoom: 14,
+		          mapTypeId: google.maps.MapTypeId.ROADMAP
+		        }
+		        var map = new google.maps.Map(mapCanvas, mapOptions);
+
+		        var marker = new google.maps.Marker({
+		        	position: new google.maps.LatLng(<%= @event.latitude %>, <%= @event.longitude %>),
+		        	title: "AirAlien" 
+		        });
+
+		        marker.setMap(map);
+		      }
+		      google.maps.event.addDomListener(window, 'load', initialize);
+		    </script>
+
+
+			</div>
+		</div>
+
+		<!-- Close by events -->
+		<h3>Eventos na vizinhança</h3>
+		<div class="row">
+			<% for event in @event.nearbys(10) %>
+				
+				<div class="col-md-4">
+					<div class="panel panel-default">
+						<div class="panel-heading preview">
+							<%= image_tag event.photos[0].image.url(:medium) %>
+						</div>
+						<div class="panel-body">
+							<%= link_to event.event_name, event %><br>
+							(<%= event.distance.round(2) %> miles away)
+						</div>
+					</div>
+				</div>
+
+			<% end %>
+		</div>
+
+
+	</div>
+</div>
