@@ -49,4 +49,6 @@ Rails.application.configure do
     user_name: ENV["GMAIL_USERNAME"],
     password: ENV["GMAIL_PASSWORD"]
   }
+  config.time_zone = 'Brasilia'
+  config.active_record.default_timezone = :local
 end

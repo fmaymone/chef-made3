@@ -36,6 +36,8 @@ gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 
 gem 'geocoder'
+gem 'bootstrap-generators', '~> 3.3.4'
+gem 'jquery-ui-rails'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

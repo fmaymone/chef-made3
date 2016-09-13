@@ -1,6 +1,6 @@
 <div class="panel panel-default">
 	<div class="panel-heading">
-		Crie seu Evento
+		Crie seu local de Eventos
 	</div>
 	<div class="panel-body">
 		<div class="container">
@@ -10,7 +10,7 @@
 				<div class="row">
 					<div class="col-md-4 select">
 						<div class="form-group">
-							<label>Tipo de Evento</label>
+							<label>Tipo de Eventos</label>
 							<%= f.select :event_type, [["Jantar","Jantar"], ["Casamento","Casamento"], ["Formatura","Formatura"]], id: "event_type", prompt: "Escolha...", class: "form-control" %>
 						</div>
 					</div>
@@ -29,7 +29,7 @@
 
 				<div class="row">
 					<div class="form-group">
-						<label>Nome do Evento</label>
+						<label>Nome do Local</label>
 						<%= f.text_field :event_name, placeholder: "Seja claro e descritivo", class: "form-control" %>
 					</div>
 				</div>
@@ -62,7 +62,7 @@
 				<div class="row">
 					<div class="col-md-4">
 						<div class="form-group">
-							<label>Preço do Evento</label>
+							<label>Preço por Dia</label>
 							<div class="input-group">
 								<div class="input-group-addon">$</div>
 								<%= f.text_field :price, placeholder: "ex. 100", class: "form-control" %>
@@ -74,7 +74,7 @@
 					<div class="col-md-4">
 						<div class="form-group">							
 							<span class="btn btn-default btn-file">
-							    <i class="fa fa-cloud-upload fa-lg"></i> Upload Photos 
+							    <i class="fa fa-cloud-upload fa-lg"></i> Adicione Fotos
 							    <%= file_field_tag "images[]", type: :file, multiple: true %>
 							</span>
 						</div>		
@@ -82,6 +82,18 @@
 				</div>
 
 				<div id="photos"><%= render 'photos/list' %></div>
+			
+				<div class="row">
+						<div class="col-md-4">
+							<div class="panel panel-default">
+					 			 <div class="panel-heading preview">
+								 
+								  	<div id="photos_preview"> </div>
+								  	
+								</div>
+							</div>
+						</div>
+				</div>
 
 				<div class="row">
 					<div class="form-group">
@@ -98,3 +110,24 @@
 		</div>
 	</div>
 </div>
+
+<script>
+$(function() {
+  $('#images_').on('change', function(event) {
+    var files = event.target.files;
+    var image = files[0]
+    // here's the file size
+    console.log(image.size);
+    var reader = new FileReader();
+    reader.onload = function(file) {
+      var img = new Image();
+      console.log(file);
+      img.src = file.target.result;
+      $('#photos_preview').html(img);
+    }
+    reader.readAsDataURL(image);
+    console.log(files);
+  });
+});	
+	
+</script>

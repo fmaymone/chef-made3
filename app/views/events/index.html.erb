@@ -1,17 +1,17 @@
 <div class="row">
 	<div class="col-md-3">
 		<ul class="sidebar-list">
-			<li class="sidebar-item"><%= link_to "Seus Eventos", events_path, class: "sidebar-link active" %></li>
+			<li class="sidebar-item"><%= link_to "Seus locais de Eventos", events_path, class: "sidebar-link active" %></li>
 			<li class="sidebar-item"><%= link_to "Seus Trabalhos", events_path, class: "sidebar-link" %></li>
 		</ul>
 	</div>
 	<div class="col-md-9">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				Eventos
+				Locais de Eventos
 			</div>
 			<div class="panel-body">
-				
+				<%= link_to 'Novo Local de evento', new_event_path, class: "btn btn-primary" %>
 				<% @events.each do |event| %>
 					<div class="row">
 						<div class="col-md-2">
@@ -21,7 +21,7 @@
 							<h4><%= event.event_name %></h4>
 						</div>		
 						<div class="col-md-3 right">
-							<%= link_to "Update", edit_event_path(event), class: "btn btn-primary" %>
+							<%= link_to "Editar", edit_event_path(event), class: "btn btn-primary" %>
 						</div>		
 					</div>
 					<hr>

@@ -8,6 +8,7 @@ class EventsController < ApplicationController
   end
 
   def show
+   
     @photos = @event.photos
   
   end
