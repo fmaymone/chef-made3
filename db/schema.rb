@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160912193938) do
+ActiveRecord::Schema.define(version: 20160913141941) do
 
   create_table "events", force: :cascade do |t|
     t.string   "event_type"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20160912193938) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.integer  "room_id"
   end
 
   add_index "photos", ["event_id"], name: "index_photos_on_event_id"
@@ -53,10 +54,36 @@ ActiveRecord::Schema.define(version: 20160912193938) do
     t.integer  "total"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "room_id"
   end
 
   add_index "reservations", ["event_id"], name: "index_reservations_on_event_id"
   add_index "reservations", ["user_id"], name: "index_reservations_on_user_id"
+
+  create_table "rooms", force: :cascade do |t|
+    t.string   "home_type"
+    t.string   "room_type"
+    t.integer  "accommodate"
+    t.integer  "bed_room"
+    t.integer  "bath_room"
+    t.string   "listing_name"
+    t.text     "summary"
+    t.string   "address"
+    t.boolean  "is_tv"
+    t.boolean  "is_kitchen"
+    t.boolean  "is_air"
+    t.boolean  "is_heating"
+    t.boolean  "is_internet"
+    t.integer  "price"
+    t.boolean  "active"
+    t.integer  "user_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.float    "latitude"
+    t.float    "longitude"
+  end
+
+  add_index "rooms", ["user_id"], name: "index_rooms_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
