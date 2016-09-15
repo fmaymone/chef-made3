@@ -24,15 +24,28 @@
             </a>
 
             <ul class="dropdown-menu">
-             <li><%= link_to "Seus Locais de eventos", rooms_path %></li>
-              <li><%= link_to "Seus Trabalhos", edit_user_registration_path %></li>
-              <li><%= link_to "Editar seus Dados", edit_user_registration_path %></li>
+              <li><%= link_to "Seus Locais de Evento", rooms_path %></li>
+              <li><%= link_to "Reservas dos seus Locais", your_reservations_path %></li>
+              <li><%= link_to "Suas Reservas", your_trips_path %></li>
+              <li><a href="#">Wish Lists</a></li>
+              <li><%= link_to "Editar Perfil", edit_user_registration_path %></li>
               <li role="separator" class="divider"></li>
-              <li><a href="#">Configurações da Conta</a></a></li>
+              <li><a href="#">Configurações da Conta</a></li>
               <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
             </ul>
           </li>
         <% end %>
+
+        <li>
+          <%= link_to conversations_path do %>
+            <i class="fa fa-envelope-o"></i> Mensagens
+          <% end %>
+        </li>
+        <li>
+          <%= link_to new_room_path do %>
+            <i class="fa fa-home fa-lg"></i> Alugue seu Local
+          <% end %>
+        </li>
 
         
       </ul>

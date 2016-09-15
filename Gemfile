@@ -38,6 +38,11 @@ gem 'omniauth-google-oauth2'
 gem 'geocoder'
 gem 'bootstrap-generators', '~> 3.3.4'
 gem 'jquery-ui-rails'
+
+gem 'private_pub'
+gem 'thin'
+
+gem 'ransack'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
