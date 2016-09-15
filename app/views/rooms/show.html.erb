@@ -131,7 +131,20 @@
 
 		<br>
 		<hr>
-
+		<!-- Reviews -->
+		<div class="row">
+			<div class="col-md-12">
+				<h3>Reviews <span id="average_rating"></span> (<%= @reviews.count %>)</h3>
+				<div class="container">
+					<div>
+						<%= render 'reviews/form' if @booked && !@hasReview %>
+					</div>
+					<div>
+						<%= render 'reviews/list' %>
+					</div>
+				</div>
+			</div>
+		</div>
 		<!-- Google Map -->
 		<div class="row">
 			<div class="col-md-12">
@@ -171,7 +184,7 @@
 		</div>
 
 		<!-- Close by Rooms -->
-		<h3>Near by</h3>
+		<h3>Próximos a este local</h3>
 		<div class="row">
 			<% for room in @room.nearbys(10) %>
 				
