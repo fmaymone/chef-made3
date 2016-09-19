@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :plans
+  resources :plans
   root 'pages#home'
 
   devise_for 	:users, 
@@ -10,7 +12,7 @@ Rails.application.routes.draw do
   														}
 
   resources :users, only: [:show]
-  resources :rooms
+  resources :rooms 
   resources :photos
 
   resources :rooms do

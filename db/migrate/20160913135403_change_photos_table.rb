@@ -1,5 +1,5 @@
 class ChangePhotosTable < ActiveRecord::Migration
-   def self.up
+  def self.up
     change_table :photos do |t|
       t.references :room
     end

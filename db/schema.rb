@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160915163928) do
+ActiveRecord::Schema.define(version: 20160919174908) do
 
   create_table "conversations", force: :cascade do |t|
     t.integer  "sender_id"
@@ -52,16 +52,49 @@ ActiveRecord::Schema.define(version: 20160915163928) do
 
   create_table "photos", force: :cascade do |t|
     t.integer  "event_id"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.integer  "room_id"
+    t.integer  "kind",               default: 0
   end
 
   add_index "photos", ["event_id"], name: "index_photos_on_event_id"
+
+  create_table "plans", force: :cascade do |t|
+    t.integer  "kind"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "value"
+    t.boolean  "isRenewable"
+    t.string   "title"
+    t.integer  "user_id"
+  end
+
+  add_index "plans", ["user_id"], name: "index_plans_on_user_id"
+
+  create_table "professionals", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "description"
+    t.integer  "status"
+    t.integer  "rg"
+    t.integer  "cpf"
+    t.boolean  "is_ficha_antecedentes"
+    t.boolean  "is_rg"
+    t.boolean  "is_cpf"
+    t.string   "adress"
+    t.text     "mini_curriculo"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.float    "latitude"
+    t.float    "longitude"
+  end
+
+  add_index "professionals", ["user_id"], name: "index_professionals_on_user_id"
 
   create_table "reservations", force: :cascade do |t|
     t.integer  "user_id"
@@ -137,10 +170,12 @@ ActiveRecord::Schema.define(version: 20160915163928) do
     t.string   "provider"
     t.string   "uid"
     t.string   "image"
+    t.integer  "plan_id"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
   add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["plan_id"], name: "index_users_on_plan_id"
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
 end
