@@ -17,6 +17,60 @@
 
 <br>
 
+<div class="text-center">
+	<h2>Nesse fim de semana</h2>
+	<p>Descobra novos sabores. Em casa</p>
+</div>
+
+<br>
+
+<div class="row">
+	<div class="col-md-4 col-sm-12">
+		<a href="/search?utf8=%E2%9C%93&search=recife">
+			<div class="discovery-card" style="background-image: url('/assets/italiana.png')">
+				<div class="va-container">
+					<div class="va-middle text-center">
+						<h2><strong>Italiana</strong></h2>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+
+	<div class="col-md-4 col-sm-6">
+		<a href="/search?utf8=%E2%9C%93&search=london">
+			<div class="discovery-card" style="background-image: url('/assets/francesa.jpg')">
+				<div class="va-container">
+					<div class="va-middle text-center">
+						<h2><strong>Francesa</strong></h2>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+
+	<div class="col-md-4 col-sm-6">
+		<a href="/search?utf8=%E2%9C%93&search=berlin">
+			<div class="discovery-card" style="background-image: url('/assets/alema.png')">
+				<div class="va-container">
+					<div class="va-middle text-center">
+						<h2><strong>Alemã</strong></h2>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+</div>
+
+<br>
+
+<div class="text-center">
+	<h2>Ache um Chef, próximo de você</h2>
+	
+</div>
+
+<br>
+
 <div class="row">
 	<% @rooms.each do |room| %>
 		
@@ -26,6 +80,7 @@
 					<%= image_tag room.photos[0].image.url(:medium) if room.photos.length > 0 %>
 				</div>
 				<div class="panel-body">
+					<%= image_tag avatar_url(room.user), class: "img-circle avatar-small" %>&nbsp;
 					<%= link_to room.listing_name, room %>
 				</div>
 			</div>
