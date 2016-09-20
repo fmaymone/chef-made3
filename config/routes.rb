@@ -3,16 +3,17 @@ Rails.application.routes.draw do
   resources :plans
   resources :plans
   root 'pages#home'
-
+  
   devise_for 	:users, 
   						:path => '', 
   						:path_names => {:sign_in => 'login', :sign_out => 'logout', :edit => 'profile'},
   						:controllers => {:omniauth_callbacks => 'omniauth_callbacks',
   														 :registrations => 'registrations'
-  														}
+  														},
+  						:omniauth_providers => [:google_oauth2]
 
   resources :users, only: [:show]
-  resources :rooms 
+  resources :rooms, :path => 'trabalhos'
   resources :photos
 
   resources :rooms do

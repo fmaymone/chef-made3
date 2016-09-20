@@ -32,8 +32,10 @@ gem 'paperclip'
 gem 'toastr-rails'
 
 gem 'omniauth'
+gem 'omniauth-oauth2'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
+
 
 gem 'geocoder'
 gem 'bootstrap-generators', '~> 3.3.4'

@@ -1,0 +1,37 @@
+<div class="container">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= render 'shared/devisemes' %>
+
+    <div class="form-group">
+      <%= f.text_field :fullname, autofocus: true, :placeholder => "Nome Completo", :class => 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.email_field :email, :placeholder => "Email", :class => 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.text_field :phone_number, :placeholder => "Telefone", :class => 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.text_area :description, rows: 5, cols: 25,  :placeholder => "Descrição", :class => 'form-control' %>
+    </div>
+
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div>Aguardando Confirmação no email: <%= resource.unconfirmed_email %></div>
+    <% end %>
+
+    <div class="form-group">
+      <%= f.password_field :password, autocomplete: "off", :placeholder => "Mudar Senha (deixe esse campo em branco se não quiser alterar)", :class => 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.password_field :password_confirmation, autocomplete: "off", :placeholder => "Repita a Senha", :class => 'form-control' %>
+    </div>
+    
+    <div class="actions">
+      <%= f.submit "Salvar", :class => "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>

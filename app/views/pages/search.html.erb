@@ -17,8 +17,9 @@
 	          mapTypeId: google.maps.MapTypeId.ROADMAP
 	        }
 	        var map = new google.maps.Map(mapCanvas, mapOptions);
-
+    <%  puts @arrRooms %>
 	        <% @arrRooms.each do |room| %>	
+	        console.log ("olar");
 		        var marker = new google.maps.Marker({
 		        	position: new google.maps.LatLng(<%= room.latitude %>, <%= room.longitude %>),
 		        	title: "AirAlien" 
