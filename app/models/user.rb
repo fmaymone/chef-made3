@@ -13,6 +13,8 @@ class User < ActiveRecord::Base
   has_many :reservations
   has_many :reviews
   has_many :authorizations
+  has_many :photos  
+ 
   
   belongs_to :plan
   

@@ -12,7 +12,8 @@ Rails.application.routes.draw do
   														},
   						:omniauth_providers => [:google_oauth2]
 
-  resources :users, only: [:show]
+  # resources :users, only: [:show]
+  resources :users
   resources :rooms, :path => 'trabalhos'
   resources :photos
 

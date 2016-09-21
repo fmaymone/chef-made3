@@ -1,0 +1,6 @@
+<div class="container">
+<% if current_user.plan %>
+<h3><%= current_user.plan.title %></h3>
+<h2><%= current_user.plan.description %></h2>
+<% end %>
+</div>

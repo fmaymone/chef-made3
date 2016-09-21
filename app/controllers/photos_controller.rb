@@ -2,11 +2,13 @@ class PhotosController < ApplicationController
 
 	def destroy
 		@photo = Photo.find(params[:id])
-		event = @photo.event
+		room = @photo.room
 
 		@photo.destroy
-		@photos = Photo.where(event_id: event.id)
+		@photos = Photo.where(room_id: room.id)
 
 		respond_to :js
 	end
+	
+	
 end

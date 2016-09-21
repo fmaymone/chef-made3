@@ -3,7 +3,7 @@
 <div id="sidebar">
 		<div id="widget" class="sticky">
 
-			<script src="https://maps.googleapis.com/maps/api/js"></script>
+			<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDrTLFgSx9QXy8Cjd9DU-Hv-vjdi1qUPRY"></script>
 	    <script>
 	      function initialize() {
 	        var mapCanvas = document.getElementById('widget');
@@ -19,10 +19,10 @@
 	        var map = new google.maps.Map(mapCanvas, mapOptions);
     <%  puts @arrRooms %>
 	        <% @arrRooms.each do |room| %>	
-	        console.log ("olar");
+	        
 		        var marker = new google.maps.Marker({
 		        	position: new google.maps.LatLng(<%= room.latitude %>, <%= room.longitude %>),
-		        	title: "AirAlien" 
+		        	title: "Chef-Made" 
 		        });
 
 		        marker.setMap(map);

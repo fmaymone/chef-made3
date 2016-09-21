@@ -29,7 +29,7 @@ class RoomsController < ApplicationController
           @room.photos.create(image: image)
         end
       end
-
+      
       @photos = @room.photos
       redirect_to edit_room_path(@room), notice: "Saved..."
     else
