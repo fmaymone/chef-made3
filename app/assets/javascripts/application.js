@@ -16,6 +16,6 @@
 //= require jquery-ui/datepicker
 //= require toastr
 //= require private_pub
+//= require dropzone
 //= require_tree .
-
 

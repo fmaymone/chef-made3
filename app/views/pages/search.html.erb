@@ -17,18 +17,27 @@
 	          mapTypeId: google.maps.MapTypeId.ROADMAP
 	        }
 	        var map = new google.maps.Map(mapCanvas, mapOptions);
-    <%  puts @arrRooms %>
+	        
+   
 	        <% @arrRooms.each do |room| %>	
 	        
 		        var marker = new google.maps.Marker({
 		        	position: new google.maps.LatLng(<%= room.latitude %>, <%= room.longitude %>),
-		        	title: "Chef-Made" 
+		        	title: '<%= room.listing_name %>'
+		        	
 		        });
-
+					marker.addListener('click', function() {
+					    map.setZoom(18);
+					    map.setCenter(marker.getPosition());
+				    	
+				     
+					});
 		        marker.setMap(map);
 	        <% end %>
 	      }
 	      google.maps.event.addDomListener(window, 'load', initialize);
+	      
+	     
 	    </script>
 			
 		</div>

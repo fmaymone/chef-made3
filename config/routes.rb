@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
 
+  resources :documents
+  resources :documents
   resources :plans
   resources :plans
   root 'pages#home'
+  
   
   devise_for 	:users, 
   						:path => '', 
@@ -16,6 +19,8 @@ Rails.application.routes.draw do
   resources :users
   resources :rooms, :path => 'trabalhos'
   resources :photos
+  resources :documents
+  
 
   resources :rooms do
     resources :reservations, only: [:create]
@@ -27,6 +32,9 @@ Rails.application.routes.draw do
 
   resources :rooms do
     resources :reviews, only: [:create, :destroy]
+  end
+  resources :rooms do
+    resources :documents, only: [:create, :destroy]
   end
 
   get '/preload' => 'reservations#preload'

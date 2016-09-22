@@ -1,15 +1,15 @@
-<% if @photos %>
+<% if @documents %>
 
 	<div class="row">
-		<% @photos.each do |photo| %>		
+		<% @documents.each do |document| %>		
 			<div class="col-md-4">
 				<div class="panel panel-default">
 				  <div class="panel-heading preview">
-				  	<%= image_tag photo.image.url() %>
+				  	<%= image_tag document.image.url() %>
 				  </div>
 				  <div class="panel-body">
 				  	<span class="pull-right">
-				  		<%= link_to photo, remote: true, method: :delete, data: {confirm: "Tem certeza?"} do %>
+				  		<%= link_to document, remote: true, method: :delete, data: {confirm: "Tem certeza?"} do %>
 					  		<i class="fa fa-times fa-lg"></i>
 				  		<% end %>
 				  	</span>

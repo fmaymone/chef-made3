@@ -1,0 +1,29 @@
+<%= form_for(@document, html: { :class => 'dropzone',id: "my-dropzone" , multipart: true  }) do |f| %>
+
+
+  <div class="dz-message needsclick">
+    <h3>Arraste os Arquivos aqui</h3> ou <strong>clique</strong> aqui para Carregar
+    
+  </div>
+  
+  <div class="fallback">
+    <%= f.file_field :image %>
+    <%= f.submit "Upload" %>
+    
+  </div>
+
+
+<% end %>
+<script>
+  $(function () {
+  
+    $("#my-dropzone").dropzone({
+      maxFilesize: 0.1,
+      addRemoveLinks: true,
+      paramName: 'document[image]'
+    
+    
+    });  
+    
+});
+</script>

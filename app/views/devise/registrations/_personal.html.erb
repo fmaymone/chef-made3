@@ -15,10 +15,26 @@
     <div class="form-group">
       <%= f.text_field :phone_number, :placeholder => "Telefone", :class => 'form-control' %>
     </div>
+   <div class="form-group">
+       <%= f.label :cpf, "CPF:" %>
+      <%= f.text_field :cpf, autofocus: true,  :class => 'form-control' %>
+    </div>
+   
+    <div class="form-group">
+       <%= f.label :rg, "RG:" %>
+      <%= f.text_field :rg, autofocus: true,  :class => 'form-control' %>
+    </div>
+   <div class="form-group">
+     <%= f.label :rg, "Descrição" %>
+      <%= f.text_area :description, rows: 15, cols: 25,  :placeholder => "Descrição", :class => 'form-control' %>
+    </div>
 
     <div class="form-group">
-      <%= f.text_area :description, rows: 5, cols: 25,  :placeholder => "Descrição", :class => 'form-control' %>
+      <%= f.label :rg, "Mini-Currículo Profissional" %>
+      <%= f.text_area :miniCurriculo, rows: 15, cols: 25, :placeholder => "Mini-Curriculo Profissional", :class => 'form-control' %>
     </div>
+    
+  
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <div>Aguardando Confirmação no email: <%= resource.unconfirmed_email %></div>

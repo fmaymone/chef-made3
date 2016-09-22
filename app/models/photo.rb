@@ -1,6 +1,6 @@
 class Photo < ActiveRecord::Base
   belongs_to :room
-  belongs_to :user
+  
   
   enum kind: { regular: 0, documentation: 1 }
   
