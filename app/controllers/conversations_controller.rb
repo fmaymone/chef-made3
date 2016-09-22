@@ -5,6 +5,8 @@ class ConversationsController < ApplicationController
 		@users = User.all
 		@conversations = Conversation.involving(current_user)
 	end
+	
+
 
 	def create
 		if Conversation.between(params[:sender_id], params[:recipient_id]).present?
@@ -20,6 +22,10 @@ class ConversationsController < ApplicationController
 
 		def conversation_params
 			params.permit(:sender_id, :recipient_id)
+		end
+		
+		def teste
+			return "oi amigos"
 		end
 
 end

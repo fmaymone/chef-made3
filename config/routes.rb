@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :tests
   resources :documents
-  resources :documents
-  resources :plans
   resources :plans
   root 'pages#home'
   
@@ -20,6 +19,7 @@ Rails.application.routes.draw do
   resources :rooms, :path => 'trabalhos'
   resources :photos
   resources :documents
+  resources :tests
   
 
   resources :rooms do

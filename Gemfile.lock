@@ -37,6 +37,8 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     addressable (2.4.0)
+    aitch (0.5.0)
+      nokogiri (>= 1.6.0)
     arel (6.0.3)
     autoprefixer-rails (6.4.1)
       execjs
@@ -151,6 +153,11 @@ GEM
       oauth2 (~> 1.0)
       omniauth (~> 1.2)
     orm_adapter (0.5.0)
+    pagseguro-oficial (2.5.0)
+      aitch (~> 0.2)
+      i18n (~> 0.7)
+      json (~> 1.8)
+      nokogiri (~> 1.6)
     paperclip (5.1.0)
       activemodel (>= 4.2.0)
       activesupport (>= 4.2.0)
@@ -264,6 +271,7 @@ DEPENDENCIES
   omniauth-facebook
   omniauth-google-oauth2
   omniauth-oauth2
+  pagseguro-oficial (~> 2.5.0)
   paperclip
   private_pub
   rails (= 4.2.5)

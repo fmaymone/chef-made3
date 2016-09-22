@@ -1,0 +1,13 @@
+<div class="page-header">
+  <%= link_to tests_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to @test, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-info-sign"></span>
+    Show
+  <% end %>
+  <h1>Editing test</h1>
+</div>
+
+<%= render 'form' %>
