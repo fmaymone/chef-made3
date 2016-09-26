@@ -13,25 +13,25 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.label :title, class: "col-sm-2 control-label" %>
+    <%= f.label :title, "Título", class: "col-sm-2 control-label" %>
     <div class="col-sm-10">
       <%= f.text_area :title, class: "form-control" %>
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :kind, class: "col-sm-2 control-label" %>
+    <%= f.label :kind, "Tipo: 0-Básico | 1-Profissional" , class: "col-sm-2 control-label" %>
     <div class="col-sm-10">
       <%= f.number_field :kind, class: "form-control" %>
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :description, class: "col-sm-2 control-label" %>
+    <%= f.label :description, "Descrição", class: "col-sm-2 control-label" %>
     <div class="col-sm-10">
       <%= f.text_area :description, class: "form-control" %>
     </div>
   </div>
    <div class="form-group">
-    <%= f.label :value, class: "col-sm-2 control-label" %>
+    <%= f.label :value, "Valor Mensal do Plano", class: "col-sm-2 control-label" %>
     <div class="col-sm-10">
       <%= f.number_field :value, class: "form-control" %>
     </div>

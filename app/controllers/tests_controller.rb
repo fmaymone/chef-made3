@@ -1,10 +1,15 @@
 class TestsController < ApplicationController
   before_action :set_test, only: [:show, :edit, :update, :destroy]
-
+  require "services/users_service"
   # GET /tests
   # GET /tests.json
   def index
     @test = Test.all
+    
+    
+    
+    
+    
     
     # @plan = Plan.find(1)
     # @plan.description = "Descricao do Plano Básico"

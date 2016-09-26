@@ -7,14 +7,20 @@
     <span class="glyphicon glyphicon-pencil"></span>
     Edit
   <% end %>
-  <h1>Show plan</h1>
+  <h1>Mostrar Plano</h1>
 </div>
 
 <dl class="dl-horizontal">
-  <dt>Kind:</dt>
+  <dt>Titulo:</dt>
+  <dd><%= @plan.title %></dd>
+  
+  <dt>Tipo:</dt>
   <dd><%= @plan.kind %></dd>
 
-  <dt>Description:</dt>
+  <dt>Descrição:</dt>
   <dd><%= @plan.description %></dd>
+  
+  <dt>Valor:</dt>
+  <dd><%= @plan.value %></dd>
 
 </dl>
