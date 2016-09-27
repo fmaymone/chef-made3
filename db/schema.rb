@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160922160147) do
+ActiveRecord::Schema.define(version: 20160926190741) do
 
   create_table "conversations", force: :cascade do |t|
     t.integer  "sender_id"
@@ -52,6 +52,31 @@ ActiveRecord::Schema.define(version: 20160922160147) do
   end
 
   add_index "events", ["user_id"], name: "index_events_on_user_id"
+
+  create_table "menu_tags", force: :cascade do |t|
+    t.integer  "menu_id"
+    t.integer  "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "menu_tags", ["menu_id"], name: "index_menu_tags_on_menu_id"
+  add_index "menu_tags", ["tag_id"], name: "index_menu_tags_on_tag_id"
+
+  create_table "menus", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "user_id"
+    t.text     "description"
+  end
+
+  add_index "menus", ["user_id"], name: "index_menus_on_user_id"
+
+  create_table "menus_tags", id: false, force: :cascade do |t|
+    t.integer "menu_id"
+    t.integer "tag_id"
+  end
 
   create_table "messages", force: :cascade do |t|
     t.text     "content"
@@ -163,6 +188,12 @@ ActiveRecord::Schema.define(version: 20160922160147) do
   end
 
   add_index "rooms", ["user_id"], name: "index_rooms_on_user_id"
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "tests", force: :cascade do |t|
     t.datetime "created_at", null: false

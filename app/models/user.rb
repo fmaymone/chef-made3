@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
   has_many :reviews
   has_many :authorizations
   has_many :documents  
+  has_many :menus  
  
   
   belongs_to :plan

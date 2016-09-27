@@ -1,0 +1,30 @@
+<div class="page-header">
+  <%= link_to new_menu_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    Novo Menu
+  <% end %>
+  <h1>Seus Menus</h1>
+</div>
+ 
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>Id</th>
+            <th>Descrição</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @menus) do |menu| %>
+        <td><%= menu.id %></td>
+        <td><%= menu.description %></td>
+        
+        
+        <td><%= link_to 'Exibir', menu %></td>
+        <td><%= link_to 'Editar', edit_menu_path(menu) %></td>
+        <td><%= link_to 'Apagar', menu, method: :delete, data: { confirm: 'Tem certeza?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :menus
+  resources :tags
   resources :tests
   resources :documents
   resources :plans

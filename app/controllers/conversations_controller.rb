@@ -24,8 +24,6 @@ class ConversationsController < ApplicationController
 			params.permit(:sender_id, :recipient_id)
 		end
 		
-		def teste
-			return "oi amigos"
-		end
+	
 
 end
