@@ -45,14 +45,12 @@ class MenusController < ApplicationController
   # PATCH/PUT /menus/1
   # PATCH/PUT /menus/1.json
   def update
-    
-    @menu_tag =  params[:tags]
-    puts params[:tags]
-    updateMenuTag
-    
+    puts "**************************************************"
+    puts params
+    puts "**************************************************"
     respond_to do |format|
       if @menu.update(menu_params)
-        format.html { redirect_to @menu, notice: 'Menu was successfully updated.' }
+        format.html { redirect_to @menu, notice: 'Menu atualizado com sucesso.' }
         format.json { render :show, status: :ok, location: @menu }
       else
         format.html { render :edit }
@@ -79,22 +77,24 @@ class MenusController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def menu_params
-     params.require(:menu).permit(:description, :all_tags, :tags)
+     params.require(:menu).permit(:description, :title, tag_ids: [])
+     
     end
     
     def updateMenuTag
      puts "*************updateMenuTag"
-     
-      if params[:tags] 
-	        params[:tags].each do |tag|
+     puts params[:menu]
+     puts "*************updateMenuTag"
+      if params[:tag_ids] 
+	       # params[:tags].each do |tag|
 	        	
-	        	@menu_tag = MenuTag.new
-	        	@menu_tag.user = current_user
-	        	@menu_tag.tag = tag
-	        	@menu_tag.save
+	       # 	@menu_tag = MenuTag.new
+	       # 	@menu_tag.user = current_user
+	       # 	@menu_tag.tag = tag
+	       # 	@menu_tag.save
 	          
 	          
-	        end
+	       # end
 	      end
     end
 end
