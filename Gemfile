@@ -37,7 +37,7 @@ gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'dropzonejs-rails'
 gem "pagseguro-oficial", "~> 2.5.0"
-
+gem 'activeadmin', github: 'activeadmin'
 
 gem 'geocoder'
 gem 'bootstrap-generators', '~> 3.3.4'
