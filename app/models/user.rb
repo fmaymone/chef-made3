@@ -16,6 +16,8 @@ class User < ActiveRecord::Base
   has_many :documents  
   has_many :menus  
  
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
   
   belongs_to :plan
   

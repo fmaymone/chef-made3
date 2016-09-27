@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160927140140) do
+ActiveRecord::Schema.define(version: 20160927141956) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -265,6 +265,9 @@ ActiveRecord::Schema.define(version: 20160927140140) do
     t.text     "miniCurriculo"
     t.integer  "status",                           default: 0
     t.integer  "photo_id"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "address"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
