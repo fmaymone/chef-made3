@@ -29,6 +29,11 @@ class DocumentsController < ApplicationController
   def create
     @document = Document.new(document_params)
     @document.user = current_user
+    
+    puts "///////////////////////////"
+    puts document_params
+    puts "///////////////////////////"
+    
 
     respond_to do |format|
       if @document.save
@@ -82,7 +87,7 @@ class DocumentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def document_params
-       params.require(:document).permit(:image)
+       params.require(:document).permit(:image,:user_id,:menu_id, :kind)
  
     end
 end

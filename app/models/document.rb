@@ -1,7 +1,8 @@
 class Document < ActiveRecord::Base
   belongs_to :user
+  belongs_to :menu
   
-  enum kind: { cpf: 0, rg: 1 , antecedentes:2}
+  enum kind: { documentos: 0 , cardapio:3}
   
   has_attached_file :image
 

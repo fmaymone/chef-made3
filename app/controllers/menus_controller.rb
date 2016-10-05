@@ -1,25 +1,37 @@
 class MenusController < ApplicationController
   before_action :set_menu, only: [:show, :edit, :update, :destroy]
-
-  # GET /menus
-  # GET /menus.json
+  before_action :authenticate_user!, except: [:show]
+  
   def index
     @menus = current_user.menus
-    puts @menus.size
+    
   end
 
-  # GET /menus/1
-  # GET /menus/1.json
+  
   def show
+    @documents = @menu.documents
+    
   end
 
   # GET /menus/new
   def new
-    @menu = Menu.new
+     @menu = current_user.menus.build
   end
 
   # GET /menus/1/edit
   def edit
+    
+    if current_user.id == @menu.user.id
+    
+      @documents = @menu.documents
+		  @document = Document.new
+		  @document.kind = :cardapio
+		  @document.menu_id =  @menu.id
+		
+    
+    else
+      redirect_to root_path, notice: "Você não tem permissão"
+    end
   end
 
   # POST /menus
@@ -33,6 +45,15 @@ class MenusController < ApplicationController
 
     respond_to do |format|
       if @menu.save
+        if params[:images] 
+	        params[:images].each do |image|
+	        	
+	          @menu.documents.create(image: image)
+	         
+	         
+	        end
+	      end
+	      @documents = @menu.documents
         format.html { redirect_to @menu, notice: 'Menu foi criado com sucesso!' }
         format.json { render :show, status: :created, location: @menu }
       else
@@ -50,6 +71,22 @@ class MenusController < ApplicationController
     puts "**************************************************"
     respond_to do |format|
       if @menu.update(menu_params)
+        
+        logger.debug(@menu.title)
+		 
+		 
+    		  if params[:images] 
+    	        params[:images].each do |image|
+    	        	
+    	          @menu.documents.create(image: image)
+    	          @menu.documents.kind = :cardapio
+    	     
+    	        end
+    	   end
+    	
+        	@documents = @menu.documents
+            
+   
         format.html { redirect_to @menu, notice: 'Menu atualizado com sucesso.' }
         format.json { render :show, status: :ok, location: @menu }
       else
@@ -77,7 +114,7 @@ class MenusController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def menu_params
-     params.require(:menu).permit(:description, :title, tag_ids: [])
+     params.require(:menu).permit(:description, :title, :entrada, :principal, :sobremesa ,:kind, :menu_id, tag_ids: []  )
      
     end
     

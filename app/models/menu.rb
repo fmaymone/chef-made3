@@ -3,6 +3,8 @@ class Menu < ActiveRecord::Base
     has_many :menu_tags
     has_many :tags, through:  :menu_tags
     
+    has_many :documents
+    
     validates :user, presence: true
     
     def all_tags=(names)

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160927141956) do
+ActiveRecord::Schema.define(version: 20161003154933) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -63,8 +63,10 @@ ActiveRecord::Schema.define(version: 20160927141956) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.integer  "menu_id"
   end
 
+  add_index "documents", ["menu_id"], name: "index_documents_on_menu_id"
   add_index "documents", ["user_id"], name: "index_documents_on_user_id"
 
   create_table "events", force: :cascade do |t|
@@ -86,6 +88,19 @@ ActiveRecord::Schema.define(version: 20160927141956) do
 
   add_index "events", ["user_id"], name: "index_events_on_user_id"
 
+  create_table "menu_pictures", force: :cascade do |t|
+    t.integer  "menu_id"
+    t.integer  "kind"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+  end
+
+  add_index "menu_pictures", ["menu_id"], name: "index_menu_pictures_on_menu_id"
+
   create_table "menu_tags", force: :cascade do |t|
     t.integer  "menu_id"
     t.integer  "tag_id"
@@ -103,6 +118,11 @@ ActiveRecord::Schema.define(version: 20160927141956) do
     t.integer  "user_id"
     t.text     "description"
     t.string   "title"
+    t.decimal  "people"
+    t.integer  "duration"
+    t.string   "entrada"
+    t.string   "principal"
+    t.string   "sobremesa"
   end
 
   add_index "menus", ["user_id"], name: "index_menus_on_user_id"
