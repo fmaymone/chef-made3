@@ -8,8 +8,8 @@
 	      function initialize() {
 	        var mapCanvas = document.getElementById('widget');
 	        var mapOptions = {
-	        	<% if @arrRooms.length > 0 %>
-		          center: new google.maps.LatLng(<%= @arrRooms[0].latitude %>, <%= @arrRooms[0].longitude %>),
+	        	<% if @arrMenus.length > 0 %>
+		          center: new google.maps.LatLng(<%= @arrMenus[0].user.latitude %>, <%= @arrMenus[0].user.longitude %>),
 		        <% else %>  
 		        	center: new google.maps.LatLng(44.5403, -78.5463),
 		        <% end %>  
@@ -19,11 +19,11 @@
 	        var map = new google.maps.Map(mapCanvas, mapOptions);
 	        
    
-	        <% @arrRooms.each do |room| %>	
+	        <% @arrMenus.each do |menu| %>	
 	        
 		        var marker = new google.maps.Marker({
-		        	position: new google.maps.LatLng(<%= room.latitude %>, <%= room.longitude %>),
-		        	title: '<%= room.listing_name %>'
+		        	position: new google.maps.LatLng(<%= menu.user.latitude %>, <%= menu.user.longitude %>),
+		        	title: '<%= menu.user.fullname %>'
 		        	
 		        });
 					marker.addListener('click', function() {
@@ -71,59 +71,26 @@
 					<div class="row">
 					
 						<div class="col-md-4">
-							<%= check_box_tag "q[room_type_eq_any][]", "Todo" %> Todo o Local
+							<%= check_box_tag "q[menu_type_eq_any][]", "Todo" %> Todo o Local
 						</div>
 						<div class="col-md-4">
-							<%= check_box_tag "q[room_type_eq_any][]", "Privado" %> Privado
+							<%= check_box_tag "q[menu_type_eq_any][]", "Privado" %> Privado
 						</div>
 						<div class="col-md-4">
-							<%= check_box_tag "q[room_type_eq_any][]", "Compartilhado" %> Compartilhado
+							<%= check_box_tag "q[menu_type_eq_any][]", "Compartilhado" %> Compartilhado
 						</div>
 					</div>
 
 					<hr>
 
 					<div class="row">
-						<div class="col-md-4">
-							<div class="form-group">
-								<label>Capacidade</label>
-								<%= f.select :accommodate_gteq,[["1-10",1], ["11-30",2], ["31-50",3], ["51-100",4], ["101-300",5], ["300+",6]], prompt: "Select...", class: "form-control" %>
-							</div>
-						</div>
-
-						<div class="col-md-4">
-							<div class="form-group">
-								<label>Espaços</label>
-								<%= f.select :accommodate_gteq, [["1",1], ["2",2], ["3",3], ["4+",4]], prompt: "Select...", class: "form-control" %>
-							</div>
-						</div>
-
-						<div class="col-md-4">
-							<div class="form-group">
-								<label>Banheiros</label>
-								<%= f.select :accommodate_gteq, [["1",1], ["2",2], ["3",3], ["4+",4]], prompt: "Select...", class: "form-control" %>
-							</div>
-						</div>
+						
 					</div>
 
 					<hr>
 
 					<div class="row">
-						<div class="col-md-4">
-							<%= check_box_tag "q[is_tv_eq]", true %> Telão
-						</div>
-						<div class="col-md-4">
-							<%= check_box_tag "q[is_kitchen_eq]", true %> Cozinha Própria
-						</div>
-						<div class="col-md-4">
-							<%= check_box_tag "q[is_internet_eq]", true %> Internet
-						</div>
-						<div class="col-md-4">
-							<%= check_box_tag "q[is_heating_eq]", true %> Aquecimento
-						</div>
-						<div class="col-md-4">
-							<%= check_box_tag "q[is_air_eq]", true %> Ar-Condicionado
-						</div>
+					
 					</div>
 
 					<br>
@@ -137,15 +104,15 @@
 				<hr>
 
 				<div class="row">
-					<% @arrRooms.each do |room| %>
+					<% @arrMenus.each do |menu| %>
 						
 						<div class="col-md-6">
 							<div class="panel panel-default">
 								<div class="panel-heading preview">
-									<%= image_tag room.photos[0].image.url(:medium) if room.photos.length > 0 %>
+									<%= image_tag menu.documents[0].image.url(:medium) if menu.documents.length > 0 %>
 								</div>
 								<div class="panel-body">
-									<%= link_to room.listing_name, room %>
+									<%= link_to menu.title, menu %>
 								</div>
 							</div>
 						</div>

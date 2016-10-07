@@ -1,8 +1,8 @@
-<%= form_for([@menu, @menu.reservations.new]) do |f| %>
+<%= form_for([@room, @room.reservations.new]) do |f| %>
 	
 	<div class="row">
 		<div class="col-md-12 price_tag">
-			<span>$<%= @menu.price %></span>
+			<span>$<%= @room.price %></span>
 			<span class="pull-right">Por Dia</span>
 		</div>
 	</div>
@@ -18,11 +18,11 @@
 		</div>
 	</div>
 
-	<%= f.hidden_field :reservable_id, value: @menu.id %>
-	<%= f.hidden_field :reservable_type, value: Menu.name%>
+	<%= f.hidden_field :reservable_id, value: @room.id %>
+	<%= f.hidden_field :reservable_type, value: Room.name%>
 	
 	
-	<%= f.hidden_field :price, value: @menu.price %>
+	<%= f.hidden_field :price, value: @room.price %>
 	<%= f.hidden_field :total, id: 'reservation_total' %>
 
 	
@@ -61,7 +61,7 @@
 
 		$.ajax({
 			url: '/preload',
-			data: {'menu_id': <%= @menu.id %>},
+			data: {'room_id': <%= @room.id %>},
 			dataType: 'json',
 			success: function(data) {
 
@@ -87,7 +87,7 @@
 						var input = {
 							'start_date': start_date,
 							'end_date': end_date,
-							'menu_id': <%= @menu.id %>
+							'room_id': <%= @room.id %>
 						}
 
 						$.ajax({
@@ -106,7 +106,7 @@
 									$('#preview').show();
 									$('#btn_book').attr('disabled', false);
 
-									var total = days * <%= @menu.price %>
+									var total = days * <%= @room.price %>
 									$('#reservation_days').text(days);
 									$('#reservation_sum').text(total);
 									$('#reservation_total').val(total);
@@ -131,7 +131,7 @@
 						var input = {
 							'start_date': start_date,
 							'end_date': end_date,
-							'menu_id': <%= @menu.id %>
+							'room_id': <%= @room.id %>
 						}
 
 						$.ajax({
@@ -150,7 +150,7 @@
 									$('#preview').show();
 									$('#btn_book').attr('disabled', false);
 
-									var total = days * <%= @menu.price %>
+									var total = days * <%= @room.price %>
 									$('#reservation_days').text(days);
 									$('#reservation_sum').text(total);
 									$('#reservation_total').val(total);

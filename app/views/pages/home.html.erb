@@ -1,66 +1,9 @@
-<%= form_tag search_path, method: :get do %>
-	<div class="row">
-		<div class="col-md-6">
-			<%= text_field_tag :search, params[:search], placeholder: "Onde é o seu Evento?", class: "form-control" %>
-		</div>
-		<div class="col-md-2">
-			<%= text_field_tag :start_date, params[:start_date], placeholder: "Data Inicial", class: "form-control" %>
-		</div>
-		<div class="col-md-2">
-			<%= text_field_tag :end_date, params[:end_date], placeholder: "Data Final", class: "form-control" %>
-		</div>
-		<div class="col-md-2">
-			<%= submit_tag "Buscar", class: "btn btn-primary" %>
-		</div>
-	</div>
-<% end %>
+
+<%= render 'searchForm' %>
 
 <br>
 
-<div class="text-center">
-	<h2>Nesse fim de semana</h2>
-	<p>Descobra novos sabores. Em casa</p>
-</div>
-
-<br>
-
-<div class="row">
-	<div class="col-md-4 col-sm-12">
-		<a href="/search?utf8=%E2%9C%93&search=recife">
-			<div class="discovery-card" style="background-image: url('/assets/italiana.png')">
-				<div class="va-container">
-					<div class="va-middle text-center">
-						<h2><strong>Italiana</strong></h2>
-					</div>
-				</div>
-			</div>
-		</a>
-	</div>
-
-	<div class="col-md-4 col-sm-6">
-		<a href="/search?utf8=%E2%9C%93&search=london">
-			<div class="discovery-card" style="background-image: url('/assets/francesa.jpg')">
-				<div class="va-container">
-					<div class="va-middle text-center">
-						<h2><strong>Francesa</strong></h2>
-					</div>
-				</div>
-			</div>
-		</a>
-	</div>
-
-	<div class="col-md-4 col-sm-6">
-		<a href="/search?utf8=%E2%9C%93&search=berlin">
-			<div class="discovery-card" style="background-image: url('/assets/alema.png')">
-				<div class="va-container">
-					<div class="va-middle text-center">
-						<h2><strong>Alemã</strong></h2>
-					</div>
-				</div>
-			</div>
-		</a>
-	</div>
-</div>
+<%= render 'searchOptions' %>
 
 <br>
 

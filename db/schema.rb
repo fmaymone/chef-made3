@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161003154933) do
+ActiveRecord::Schema.define(version: 20161006171750) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -113,8 +113,8 @@ ActiveRecord::Schema.define(version: 20161003154933) do
 
   create_table "menus", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.integer  "user_id"
     t.text     "description"
     t.string   "title"
@@ -123,6 +123,7 @@ ActiveRecord::Schema.define(version: 20161003154933) do
     t.string   "entrada"
     t.string   "principal"
     t.string   "sobremesa"
+    t.integer  "price",       default: 0, null: false
   end
 
   add_index "menus", ["user_id"], name: "index_menus_on_user_id"
@@ -198,12 +199,15 @@ ActiveRecord::Schema.define(version: 20161003154933) do
     t.datetime "end_date"
     t.integer  "price"
     t.integer  "total"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "room_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "reservable_id"
+    t.string   "reservable_type"
   end
 
   add_index "reservations", ["event_id"], name: "index_reservations_on_event_id"
+  add_index "reservations", ["reservable_id"], name: "index_reservations_on_reservable_id"
+  add_index "reservations", ["reservable_type"], name: "index_reservations_on_reservable_type"
   add_index "reservations", ["user_id"], name: "index_reservations_on_user_id"
 
   create_table "reviews", force: :cascade do |t|

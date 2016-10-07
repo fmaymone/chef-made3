@@ -1,11 +1,11 @@
-class ReservationsController < ApplicationController
+class ReservationsRoomsController < ApplicationController	
 	before_action :authenticate_user!
 
 	def preload
 		
-		room = Room.find(params[:room_id])
+		menu = Menu.find(params[:menu_id])
 		today = Date.today
-		reservations = room.reservations.where("start_date >= ? OR end_date >= ?", today, today)
+		reservations = menu.reservations.where("start_date >= ? OR end_date >= ?", today, today)
 
 		render json: reservations	
 	end
@@ -24,7 +24,7 @@ class ReservationsController < ApplicationController
 	def create
 		
 	
-		if is_user_same_room
+		if is_user_same_menu
 			@reservation = current_user.reservations.create(reservation_params)	
 			redirect_to @reservation.reservable, notice: "Reserva criada com sucesso..."
 		else

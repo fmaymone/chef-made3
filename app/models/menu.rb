@@ -1,9 +1,12 @@
 class Menu < ActiveRecord::Base
+    
     belongs_to :user
     has_many :menu_tags
     has_many :tags, through:  :menu_tags
     
     has_many :documents
+    
+    has_many :reservations, as: :reservable
     
     validates :user, presence: true
     

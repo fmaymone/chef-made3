@@ -11,10 +11,11 @@ class User < ActiveRecord::Base
   
   has_many :rooms
   has_many :reservations
+  has_many :menus
   has_many :reviews
   has_many :authorizations
   has_many :documents  
-  has_many :menus  
+  has_many :reservables  
  
   geocoded_by :address
   after_validation :geocode, if: :address_changed?

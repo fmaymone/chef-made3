@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   resources :documents
   resources :tests
   resources :menu_photos
+  resources :reservations_rooms
   
 
   resources :rooms do
