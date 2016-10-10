@@ -11,11 +11,15 @@ class MenusController < ApplicationController
   def show
     @documents = @menu.documents
     
+    
   end
 
   # GET /menus/new
   def new
      @menu = current_user.menus.build
+    # redirect_to @menu
+
+     
   end
 
   # GET /menus/1/edit
@@ -54,7 +58,8 @@ class MenusController < ApplicationController
 	        end
 	      end
 	      @documents = @menu.documents
-        format.html { redirect_to @menu, notice: 'Menu foi criado com sucesso!' }
+	      
+        format.html { redirect_to edit_menu_path(@menu), notice: 'Menu foi criado com sucesso!' }
         format.json { render :show, status: :created, location: @menu }
       else
         format.html { render :new }

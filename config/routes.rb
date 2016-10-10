@@ -31,6 +31,9 @@ Rails.application.routes.draw do
   resources :rooms do
     resources :reservations, only: [:create]
   end
+  resources :menus do
+    resources :reservations, only: [:create]
+  end
   
   resources :users do
     resources :menus, only: [:create]
@@ -46,15 +49,20 @@ Rails.application.routes.draw do
   resources :rooms do
     resources :documents, only: [:create, :destroy]
   end
+  
+  resources :rooms do
+    resources :reviews, only: [:create, :destroy]
+  end
 
   get '/preload' => 'reservations#preload'
   get '/preview' => 'reservations#preview'
 
   get '/your_trips' => 'reservations#your_trips'
-  get '/your_reservations' => 'reservations#your_reservations'
+  get '/seus_trabalhos' => 'reservations#seus_trabalhos'
   
   post '/notify' => 'reservations#notify'
-  post '/your_trips' => 'reservations#your_trips'
+  # post '/suas_reservas' => 'reservations#suas_reservas'
+  get '/suas_reservas' => 'reservations#suas_reservas'
 
   get '/search' => 'pages#search'
   

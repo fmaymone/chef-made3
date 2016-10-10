@@ -1,27 +1,27 @@
 <div class="row">
 	<div class="col-md-3">
 		<ul class="sidebar-list">
-			<li class="sidebar-item"><%= link_to "Seus Locais de Eventos", rooms_path, class: "sidebar-link" %></li>
-			<li class="sidebar-item"><%= link_to "Suas Reservas", your_reservations_path, class: "sidebar-link active" %></li>
-			<li class="sidebar-item"><%= link_to "Seus Eventos Reservados ", your_trips_path, class: "sidebar-link" %></li>
+		
+		<li class="sidebar-item"><%= link_to "Seus Trabalhos",seus_trabalhos_path, class: "sidebar-link active" %></li>
+			<li class="sidebar-item"><%= link_to "Suas Reservas", suas_reservas_path, class: "sidebar-link" %></li>
 		</ul>
 	</div>
 	<div class="col-md-9">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				Your Reservations
+				Seus Trabalhos
 			</div>
 			<div class="panel-body">
-				<% @rooms.each do |room| %>
+				<% @menus.each do |menu| %>
 					
-					<% room.reservations.each do |reservation| %>
+					<% menu.reservations.each do |reservation| %>
 						<div class="row">
 							<div class="col-md-2">
 								<%= reservation.start_date.strftime('%v') %>
 							</div>	
 							<div class="col-md-6">
-								<%= link_to room_path(reservation.room) do %>
-									<%= image_tag reservation.room.photos[0].image.url(:thumb) if reservation.room.photos.length > 0 %>
+								<%= link_to menu_path(reservation.reservable) do %>
+									<%= image_tag reservation.reservable.documents[0].image.url(:thumb) if reservation.reservable.documents.length > 0 %>
 								<% end %>
 							</div>	
 							<div class="col-md-2">

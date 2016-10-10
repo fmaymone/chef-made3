@@ -5,7 +5,7 @@
 			
 			<% if current_user != @user %>
 				<div class="row-space-2">
-					<%= link_to "Send Message", conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: 'post', class: "btn btn-primary wide" %>
+					<%= link_to "Enviar Mensagem", conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: 'post', class: "btn btn-primary wide" %>
 				</div>
 			<% end %>
 			
@@ -33,18 +33,18 @@
 			<%= @user.description %>
 		</div>
 
-		<h4>Listings (<%= @rooms.length %>)</h4><br>
+		<h4>Menus (<%= @menus.length %>)</h4><br>
 
 		<div class="row">
 			
-			<% @rooms.each do |room| %>
+			<% @menus.each do |menu| %>
 				<div class="col-md-4">
 					<div class="panel panel-default">
 						<div class="panel-heading preview">
-							<%= image_tag room.photos[0].image.url(:medium) %>
+							<%= image_tag menu.documents[0].image.url(:medium) %>
 						</div>
 						<div class="panel-body">
-							<%= link_to room.listing_name, room %>
+							<%= link_to menu.title, menu %>
 						</div>
 					</div>
 				</div>
@@ -54,17 +54,17 @@
 
 		<h4>Reviews</h4><br>
 
-		<% @rooms.each do |room| %>
-			<% if !room.reviews.blank? %>
+		<% @menus.each do |menu| %>
+			<% if !menu.reviews.blank? %>
 
-				<% room.reviews.each do |review| %>
+				<% menu.reviews.each do |review| %>
 					<div class="row">
 						<div class="col-md-2 text-center">
 							<%= image_tag avatar_url(review.user), class: "img-circle avatar-medium" %><br>
 							<%= review.user.fullname %>
 						</div>
 						<div class="col-md-10">
-							<%= link_to room.listing_name, room %><br>
+							<%= link_to menu.listing_name, menu %><br>
 							<%= review.comment %><br>
 							<%= review.created_at.strftime("%v") %>
 						</div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161006171750) do
+ActiveRecord::Schema.define(version: 20161010140056) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -212,13 +212,17 @@ ActiveRecord::Schema.define(version: 20161006171750) do
 
   create_table "reviews", force: :cascade do |t|
     t.text     "comment"
-    t.integer  "star",       default: 1
+    t.integer  "star",            default: 1
     t.integer  "room_id"
     t.integer  "user_id"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.integer  "reviewable_id"
+    t.string   "reviewable_type"
   end
 
+  add_index "reviews", ["reviewable_id"], name: "index_reviews_on_reviewable_id"
+  add_index "reviews", ["reviewable_type"], name: "index_reviews_on_reviewable_type"
   add_index "reviews", ["room_id"], name: "index_reviews_on_room_id"
   add_index "reviews", ["user_id"], name: "index_reviews_on_user_id"
 

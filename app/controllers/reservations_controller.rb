@@ -3,9 +3,12 @@ class ReservationsController < ApplicationController
 
 	def preload
 		
-		room = Room.find(params[:room_id])
+		# menu = Menu.find(params[:menu_id])
+		# today = Date.today
+		# reservations = menu.reservations.where("start_date >= ? OR end_date >= ?", today, today)
+		menu = Menu.find(params[:menu_id])
 		today = Date.today
-		reservations = room.reservations.where("start_date >= ? OR end_date >= ?", today, today)
+		reservations = menu.reservations.where("start_date >= ? OR end_date >= ?", today, today)
 
 		render json: reservations	
 	end
@@ -24,31 +27,31 @@ class ReservationsController < ApplicationController
 	def create
 		
 	
-		if is_user_same_room
+		if is_user_same_menu
 			@reservation = current_user.reservations.create(reservation_params)	
 			redirect_to @reservation.reservable, notice: "Reserva criada com sucesso..."
 		else
-			redirect_to this_room, :notice => "Este local de evento, pertence a você..."
+			redirect_to this_menu, :notice => "Este menu pertence a você..."
 		end
 	end
 
-	def your_trips
-		@trips = current_user.reservations.where(reservable_type: 'Room')
+	def suas_reservas
+		@trips = current_user.reservations.where(reservable_type: 'Menu')
 	end
 
-	def your_reservations
-		@rooms = current_user.rooms
+	def seus_trabalhos
+		@menus = current_user.menus
 	end
 	
-	def this_room
-		room = Room.find(params[:room_id])
+	def this_menu
+		menu = Menu.find(params[:menu_id])
 	end
 
 	private
 		def is_conflict(start_date, end_date)
-			room = Room.find(params[:room_id])
+			menu = Menu.find(params[:menu_id])
 
-			check = room.reservations.where("? < start_date AND end_date < ?", start_date, end_date)
+			check = menu.reservations.where("? < start_date AND end_date < ?", start_date, end_date)
 			check.size > 0? true : false
 		end
 
@@ -56,9 +59,9 @@ class ReservationsController < ApplicationController
 			params.require(:reservation).permit(:start_date, :end_date, :price, :total, :reservable_id, :reservable_type)
 		end
 		
-		def is_user_same_room
+		def is_user_same_menu
 			
-			 !your_reservations.include?(this_room)
+			 !your_reservations.include?(this_menu)
 			
 		end
 end

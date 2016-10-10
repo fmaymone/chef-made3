@@ -8,7 +8,10 @@ class Menu < ActiveRecord::Base
     
     has_many :reservations, as: :reservable
     
+    has_many :reviews, as: :reviewable
+    
     validates :user, presence: true
+    validates :title, presence: true
     
     def all_tags=(names)
       self.tags = names.split(",").map do |name|

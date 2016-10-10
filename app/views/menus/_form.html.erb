@@ -24,7 +24,7 @@
        <div class="form-group">
         <%= f.label :title, "Título:", class: "col-sm-2 control-label" %>
         <div class="col-sm-10">
-          <%= f.text_field :title, class: "form-control" %>
+          <%= f.text_field :title, class: "form-control" , :required => true %>
         </div>
       </div>
     </div>
@@ -34,7 +34,7 @@
       <div class="form-group">
         <%= f.label :description, "Descrição:", class: "col-sm-2 control-label" %>
         <div class="col-sm-10">
-          <%= f.text_area :description, class: "form-control" %>
+          <%= f.text_area :description, class: "form-control" , :required => true %>
         </div>
       </div>
     </div>
@@ -95,8 +95,9 @@
   		<div id="documents"><%= render 'documents/list' %></div>
     </div>
     <div class="row">
+  	<% if @menu.id %>
   		<%= render partial: "documents/new", object: @document, as: 'documentacao' %>
-  		
+  	<% end %>
     </div>
     
     <div class="row">
