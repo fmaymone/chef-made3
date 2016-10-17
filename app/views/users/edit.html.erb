@@ -12,7 +12,7 @@
 				<%= @user.email %>
 				<div class="form-group">
 				<label>Status</label>
-				<%= f.select :status, [["Ativo",'active'], ["Faltando Documentos",'pending_docs'], ["Documentos Rejeitados", 'rejected_docs'], ["Inativo",'inactive']], id: "status",  class: "form-control" %>
+				<%= f.select :status, [["Ativo",'active'], ["Faltando Documentos",'pending_docs'], ["Documentos Rejeitados", 'rejected_docs'], ["Profissional",'professional'],["Inativo",'inactive']], id: "status",  class: "form-control" %>
 			</div>
 		
 				<div class="form-group">

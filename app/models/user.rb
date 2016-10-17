@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
 
   validates :fullname, presence: true, length: {maximum: 50}
   
-  enum status: { active: 0, pending_docs: 1, rejected_docs: 2, inactive: 3 }
+  enum status: { active: 0, pending_docs: 1, rejected_docs: 2, professional: 3, inactive: 4 }
   
   has_many :rooms
   has_many :reservations
@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
   belongs_to :plan
   
   def canWork
-   true
+     self.status == 'professional' ? true : false
   end
   
   def self.new_with_session(params,session)

@@ -3,12 +3,12 @@ class PagesController < ApplicationController
   	@menus = Menu.limit(3)
   	homeUsers
   end
+  def cadastrar
+    puts "cadastrar"
+  end
   
   def homeUsers
-  	puts "****************************************"
   	@users = User.where(:plan_id => 2).limit(3)
-  	puts @users.last.email
-  	puts "****************************************"
   end
 
   def search
@@ -58,4 +58,6 @@ class PagesController < ApplicationController
   	end
 
   end
+  
+ 
 end

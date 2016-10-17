@@ -50,6 +50,8 @@ gem 'private_pub'
 gem 'thin'
 
 gem 'ransack'
+
+gem 'pg'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -62,7 +64,8 @@ gem 'ransack'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-  gem 'sqlite3'
+  # gem 'sqlite3'
+  gem 'pg'
 end
 
 group :development do

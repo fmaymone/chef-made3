@@ -67,5 +67,8 @@ Rails.application.routes.draw do
   get '/search' => 'pages#search'
   
   get '/pagseguro' => 'checkout#test'
+  
+  get '/cadastrar' => 'pages#cadastrar'
+  
 
 end

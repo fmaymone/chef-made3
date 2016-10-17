@@ -27,8 +27,9 @@
               <li><%= link_to "Suas Reservas", suas_reservas_path %></li>
               <% if current_user.canWork %>
                 <li><%= link_to "Seus Menus", menus_path %></li>
-                
               <% end %>
+              
+              
               
               <li><%= link_to "Editar Perfil", edit_user_registration_path %></li>
               <li role="separator" class="divider"></li>
@@ -44,7 +45,7 @@
           <% end %>
         </li>
         <li>
-          <%= link_to new_room_path do %>
+          <%= link_to cadastrar_path do %>
             <i class="fa fa-money fa-lg"></i> Trabalhe com a gente!
           <% end %>
         </li>
