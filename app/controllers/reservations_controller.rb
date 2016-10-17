@@ -61,7 +61,7 @@ class ReservationsController < ApplicationController
 		
 		def is_user_same_menu
 			
-			 !your_reservations.include?(this_menu)
+			 !seus_trabalhos.include?(this_menu)
 			
 		end
 end

@@ -24,9 +24,10 @@
         
         
         <td><%= link_to 'Exibir', menu %></td>
-        <td><%= link_to 'Editar', edit_menu_path(menu) %></td>
-        <td><%= link_to 'Apagar', menu, method: :delete, data: { confirm: 'Tem certeza?' } %></td>
-      <% end %>
+        <% if !isAdmin %>
+          <td><%= link_to 'Editar', edit_menu_path(menu) %></td>
+          <td><%= link_to 'Apagar', menu, method: :delete, data: { confirm: 'Tem certeza?' } %></td>
+        <% end %>
     </tbody>
   </table>
 </div>

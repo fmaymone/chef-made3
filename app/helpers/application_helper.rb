@@ -8,4 +8,15 @@ module ApplicationHelper
 		end
 	end
 	
+	 def isAdmin(user)
+         puts "66666666666666666666666666666666666666666666666666"
+         puts user.email
+         puts "66666666666666666666666666666666666666666666666666"
+         @retorno = AdminUser.where(email: user.email)
+       
+         @retorno.size > 0 ? true : false
+        
+        
+    end
+	
 end

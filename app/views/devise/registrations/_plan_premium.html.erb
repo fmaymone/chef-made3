@@ -1,0 +1,38 @@
+<%= form_for(@user, html: { class: "form-horizontal", role: "form" }) do |f| %>
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <div class="blocks active-block">
+              <div class="block-header">
+                  <h4>PROFISSIONAL</h4>
+              </div>
+              <div class="block-container">
+                  <p><span class="glyphicon glyphicon-ok" data-unicode="e013" style="color:#45BA76;"> </span>Receberá uma dolman personalizada via correio</p>
+                  <p><span class="glyphicon glyphicon-ok" data-unicode="e013" style="color:#45BA76;"> </span>Até 3 fotos de perfil</p>
+                  <p><span class="glyphicon glyphicon-ok" data-unicode="e013" style="color:#45BA76;"> </span>Espaço para link de vídeo no youtube</p>
+                  <p><span class="glyphicon glyphicon-ok" data-unicode="e013" style="color:#45BA76;"> </span>Até 6 menus diferentes</p>
+                  <p><span class="glyphicon glyphicon-ok" data-unicode="e013" style="color:#45BA76;"> </span>Até 9 fotos por menu</p>
+                  <p><span class="glyphicon glyphicon-ok" data-unicode="e013" style="color:#45BA76;"> </span>Prioridade na busca do cliente por menus</p>
+                  
+                 
+
+
+
+
+
+
+
+                 <%= f.hidden_field :plan_id, :value => '2' %>
+
+
+                  <p class="price"><i style="font-size: 40px;">R$</i>650<sub><small class="renew-price">Por/Ano</small></sub></p>
+                  
+                  <h6>60 dias grátis. Após 60 dias, taxa inicial de R$ 139 e anuidade de R$ 650, parcelado no cartão de crédito em até 12x. Mensalidade avulsa de R$ 80.</h6>
+              </div>
+             
+              
+                <div class="block-footer">
+                  <%= f.submit "Escolher" , class: "order-now" %>
+                </div>
+              
+          </div>
+      </div>
+<% end %>

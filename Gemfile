@@ -39,6 +39,7 @@ gem 'dropzonejs-rails'
 gem "pagseguro-oficial", "~> 2.5.0"
 gem 'activeadmin', github: 'activeadmin'
 gem 'active_bootstrap_skin'
+gem 'will_paginate', '~> 3.1.0'
 
 
 gem 'geocoder'

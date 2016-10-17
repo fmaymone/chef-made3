@@ -32,6 +32,7 @@ class User < ActiveRecord::Base
       new(session["devise.user_attributes"],without_protection: true) do |user|
         user.attributes = params
         user.valid?
+        
       end
     else
       super

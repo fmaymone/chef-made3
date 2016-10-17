@@ -1,0 +1,26 @@
+<%= form_for(@user, html: { class: "form-horizontal", role: "form" }) do |f| %>
+<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <div class="blocks">
+              <div class="block-header">
+                  <h4>BASICO</h4>
+              </div>
+              <div class="block-container">
+                  <p><span class="glyphicon glyphicon-ok" data-unicode="e013" style="color:#45BA76;"> </span>Receberá um avental personalizado via correio</p>
+                  <p><span class="glyphicon glyphicon-ok" data-unicode="e013" style="color:#45BA76;"> </span>Apenas 1 foto de perfil</p>
+                  <p><span class="glyphicon glyphicon-ok" data-unicode="e013" style="color:#45BA76;"> </span>Máximo de 3 menus por perfil</p>
+                  <p><span class="glyphicon glyphicon-ok" data-unicode="e013" style="color:#45BA76;"> </span>Máximo de 3 fotos por menu</p>
+                  <p><span class="glyphicon glyphicon-remove" data-unicode="e013" style="color:red;"> </span>Sem prioridade na busca do cliente por menus</p>
+                  
+                  <p class="price"><i style="font-size: 40px;">R$</i>500<sub><small class="renew-price">Por/Ano</small></sub></p>
+                   <%= f.hidden_field :plan_id, :value => '1' %>
+                  <h6>60 dias grátis. Após 60 dias, taxa inicial de R$ 99 e anuidade de R$ 500, parcelado no cartão de crédito em até 12x. Mensalidade avulsa de R$ 60.</h6>
+              </div>
+             
+      
+                <div class="block-footer">
+                  <%= f.submit "Escolher" , class: "order-now" %>
+                </div>
+              
+          </div>
+      </div>
+<% end %>

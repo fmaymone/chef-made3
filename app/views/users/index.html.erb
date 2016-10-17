@@ -1,0 +1,33 @@
+
+<% if isAdmin(current_user) %>
+ 
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Status</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @users) do |user| %>
+      
+        <td><%= user.fullname %></td>
+        <td><%= user.email %></td>
+        <td><%= user.status %></td>
+        
+        
+        <td><%= link_to 'Exibir', user %></td>
+        <td><%= link_to 'Editar', edit_user_path(user) %></td>
+        <td><%= link_to 'Apagar', user, method: :delete, data: { confirm: 'Tem certeza?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+  <% if @users %>
+      <%= will_paginate @users %>
+  <% end %>
+</div>
+
+  <% end %>
