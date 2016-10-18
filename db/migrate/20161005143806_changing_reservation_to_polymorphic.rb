@@ -4,7 +4,7 @@ class ChangingReservationToPolymorphic < ActiveRecord::Migration
     add_column :reservations, :reservable_type, :string
     
     add_index :reservations, :reservable_id
-    add_index :reservations, :reservable_id
+    add_index :reservations, :reservable_type
      
   end
 end
