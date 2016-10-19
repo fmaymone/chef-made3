@@ -28,6 +28,7 @@ gem 'bootstrap-sass'
 gem 'devise'
 
 gem 'paperclip'
+gem 'aws-sdk', '~> 2.3'
 
 gem 'toastr-rails'
 
@@ -52,6 +53,7 @@ gem 'thin'
 gem 'ransack'
 
 gem 'pg'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

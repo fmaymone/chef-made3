@@ -17,6 +17,8 @@ class MenusController < ApplicationController
   # GET /menus/new
   def new
      @menu = current_user.menus.build
+     @documents = current_user.documents
+     puts "pppppppppppppppppppppppppppppppppppppppppp"
     # redirect_to @menu
 
      

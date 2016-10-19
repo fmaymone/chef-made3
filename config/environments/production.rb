@@ -88,4 +88,14 @@ Rails.application.configure do
   }
   config.time_zone = 'Brasilia'
   config.active_record.default_timezone = :local
+  
+  config.paperclip_defaults = {
+  storage: :s3,
+    s3_credentials: {
+      bucket: ENV.fetch('chef-made'),
+      access_key_id: ENV.fetch('AKIAJB7KAV4CPFYX4ZAA'),
+      secret_access_key: ENV.fetch('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'),
+      s3_region: ENV.fetch('sa-east-1'),
+    }
+  }
 end

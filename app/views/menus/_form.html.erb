@@ -92,7 +92,7 @@
   
 <div class="col-md-12"> 
     <div class="row">
-  		<div id="documents"><%= render 'documents/list' %></div>
+  		<div id="documents"><%= render 'documents/list', locals: {documents: @documents} %></div>
     </div>
     <div class="row">
   	<% if @menu.id %>
