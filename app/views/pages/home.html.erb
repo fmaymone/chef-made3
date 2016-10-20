@@ -15,6 +15,7 @@
 <br>
 
 <div class="row">
+<% if @menus %>
 	<% @menus.each do |menu| %>
 		
 		<div class="col-md-4">
@@ -30,6 +31,7 @@
 		</div>
 
 	<% end %>
+<% end %>	
 </div>
 
 <script>
