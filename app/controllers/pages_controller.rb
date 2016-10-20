@@ -8,7 +8,8 @@ class PagesController < ApplicationController
   end
   
   def homeUsers
-  	@users = User.where(:plan_id => 2).limit(3)
+  # 	@users = User.where(:plan_id => 2).limit(3)
+    @users = User.limit(3)
   end
 
   def search
