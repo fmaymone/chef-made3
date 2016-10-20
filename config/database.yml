@@ -12,8 +12,17 @@ test:
   timeout: 5000
 
 production:
+  # adapter: postgresql
+  # database:  chef-made-production
+  # template: template0
+  # pool: 5
+  # timeout: 5000
   adapter: postgresql
-  database:  chef-made-production
-  template: template0
+  encoding: unicode
   pool: 5
   timeout: 5000
+  username: capacitor
+  password: capacitor
+  database: chef-made-production
+  host: localhost
+  port: 5432
