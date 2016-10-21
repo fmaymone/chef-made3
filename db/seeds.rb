@@ -6,3 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
+
+Plan.create!(kind: 0, title:"Plano Básico", value: 350, description: "Plano Básico com Direito a...")
+Plan.create!(kind: 1, title:"Plano Profissional", value: 900, description: "Plano Profissional com Direito a...")
