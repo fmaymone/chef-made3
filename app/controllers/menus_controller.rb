@@ -17,8 +17,11 @@ class MenusController < ApplicationController
   # GET /menus/new
   def new
      @menu = current_user.menus.build
-     @documents = current_user.documents
-     puts "pppppppppppppppppppppppppppppppppppppppppp"
+     @documents = current_user.documents.where(kind: :cardapio)
+     puts "documents sizeeeeeeeeeeeeeeeeee"
+     puts @documents.size
+     puts "documents sizeeeeeeeeeeeeeeeeee"
+     
     # redirect_to @menu
 
      
