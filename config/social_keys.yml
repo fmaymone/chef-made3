@@ -22,8 +22,8 @@ development:
   GMAIL_PASSWORD: 'crazydiamond'
 
 production:
-  facebook_key: "YOUR_KEY"
-  facebook_secret: "YOUR_SECRET"
+  facebook_key: "284777248581759"
+  facebook_secret: "5d0483389fba3da262f81d77b0135a4e"
 
   twitter_key: "YOUR_KEY"
   twitter_secret: "YOUR_SECRET"

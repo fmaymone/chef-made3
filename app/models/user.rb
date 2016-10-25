@@ -20,7 +20,8 @@ class User < ActiveRecord::Base
   has_many :authorizations
   has_many :documents  
   has_many :reservables  
-  has_many :reviewables  
+  has_many :reviews, as: :reviewable
+  
  
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
