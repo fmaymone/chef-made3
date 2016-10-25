@@ -158,13 +158,13 @@
 		<!-- Close by Menus -->
 		<h3>Chefs Próximos </h3>
 		<div class="row">
+		<% if @menu.user.nearbys(10)%>
 			<% for user in @menu.user.nearbys(10) %>
 				
 				<div class="col-md-4">
 					<div class="panel panel-default">
 						<div class="panel-heading preview">
 							
-							<%= link_to image_tag(user.image), user %>
 							
 							
 						</div>
@@ -175,11 +175,8 @@
 					</div>
 				</div>
 				
-				<!---->
-		
-				<!---->
-
 			<% end %>
+		<% end %>
 		</div>
 
 
