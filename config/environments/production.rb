@@ -98,10 +98,11 @@ Rails.application.configure do
       secret_access_key: ENV["S3_ACESS_KEY"],
       s3_region: ENV["AWS_REGION"],
     }
-   puts "credenciais do s3 ***********************"
-    puts s3_credentials.to_yaml
-   puts "credenciais do s3 ***********************"
+   
   }
+  puts "credenciais do s3 ***********************"
+   puts s3_credentials.to_yaml
+   puts "credenciais do s3 ***********************"
   config.time_zone = 'Brasilia'
   config.active_record.default_timezone = :local
   
