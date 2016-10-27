@@ -4,7 +4,7 @@
 		<!-- Image -->
 		<div class="row">
 			<div class="col-md-12">
-				<%= image_tag @documents[0].image.url(), class: "img-responsive" if @documents.length > 0 %>
+				<%= image_tag @documents[0].image.url(:thumb), class: "img-responsive" if @documents.length > 0 %>
 			</div>
 		</div>
 

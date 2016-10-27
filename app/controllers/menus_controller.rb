@@ -36,7 +36,7 @@ class MenusController < ApplicationController
 		  @document = Document.new
 		  @document.kind = :cardapio
 		  @document.menu_id =  @menu.id
-		
+		  
     
     else
       redirect_to root_path, notice: "Você não tem permissão"
