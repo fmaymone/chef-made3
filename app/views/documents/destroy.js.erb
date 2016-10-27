@@ -1,1 +1,2 @@
-$('#documents').html("<%= j render 'documents/list' %>")
+$('#documents').html("<%= j render partial: 'documents/list', locals: {documentos: @documents} %>")
+
