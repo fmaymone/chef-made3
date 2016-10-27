@@ -6,7 +6,7 @@ class TestsController < ApplicationController
   def index
     @test = Test.all
     
-    @user = User.find(1)
+    @user = User.first
     
     
     
