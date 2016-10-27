@@ -10,9 +10,9 @@ Devise.setup do |config|
   # config.secret_key = 'cccb16b38987b922ff521d541ae865f83f07252ba971731000b1374fa8ce0dfa037fa08f7a355987d8c7c49c5c0160c550aeac79ab89ad873a22aa028ee5d195'
   # config.secret_key = ENV["DEVISE_SECRET_KEY"] 
    config.secret_key = '4f71c4aabd6fd280b9dd67e1cf587f50cc062b83e92e6a0dedc77f2cbe836ed15c63688ffee1b9fbfeec0a726c24bd6992762a0929204f73b1ec45c091cd27ae'
-  puts "oi minha gente, passei aqui"
-  puts config.secret_key
-  puts "oi minha gente, passei aqui"
+  
+  
+  
  
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,

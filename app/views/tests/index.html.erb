@@ -1,1 +1,12 @@
 <%= render partial: "shared/chefs" , object:@user, as: 'chef' %>
+
+<h1><%= ENV["S3_BUCKET"] %></h1>
+<h1><%= ENV["S3_KEY_ID"] %></h1>
+<h1><%= ENV["S3_ACESS_KEY"] %></h1>
+<h1><%= ENV["AWS_REGION"] %></h1>
+
+
+ bucket: ENV["S3_BUCKET"],
+      access_key_id: ENV["S3_KEY_ID"],
+      secret_access_key: ENV["S3_ACESS_KEY"],
+      # s3_region:ENV["S3_ACESS_KEY"],

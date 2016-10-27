@@ -91,13 +91,16 @@ Rails.application.configure do
   
   config.paperclip_defaults = {
   storage: :s3,
-  s3_region: 'sa-east-1',
+  # s3_region: 'sa-east-1',
     s3_credentials: {
       bucket: ENV["S3_BUCKET"],
       access_key_id: ENV["S3_KEY_ID"],
       secret_access_key: ENV["S3_ACESS_KEY"],
-      # s3_region: ENV["S3_REGION"],
+      s3_region: ENV["AWS_REGION"],
     }
+   puts "credenciais do s3 ***********************"
+    puts s3_credentials.to_yaml
+   puts "credenciais do s3 ***********************"
   }
   config.time_zone = 'Brasilia'
   config.active_record.default_timezone = :local
