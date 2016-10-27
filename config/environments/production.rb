@@ -100,9 +100,7 @@ Rails.application.configure do
     }
    
   }
-  puts "credenciais do s3 ***********************"
-   puts s3_credentials.to_yaml
-   puts "credenciais do s3 ***********************"
+ 
   config.time_zone = 'Brasilia'
   config.active_record.default_timezone = :local
   
