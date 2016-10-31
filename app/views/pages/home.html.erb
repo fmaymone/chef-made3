@@ -1,11 +1,13 @@
 
-<%= render 'searchForm' %>
 
-<br>
+<div class="row">
+<%= render 'headerChef' %>
+</div>
+
+<%= render 'searchForm' %>
 
 <%= render 'searchOptions' %>
 
-<br>
 
 <div class="text-center">
 	<h2>Ache um Chef, próximo de você</h2>
@@ -18,17 +20,9 @@
 <% if @menus %>
 	<% @menus.each do |menu| %>
 		
-		<div class="col-md-4">
-			<div class="panel panel-default">
-				<div class="panel-heading preview">
-					<%= image_tag menu.documents[0].image.url() if menu.documents.length > 0 %>
-				</div>
-				<div class="panel-body">
-					<%= image_tag avatar_url(menu.user), class: "img-circle avatar-small" %>&nbsp;
-						<%= link_to menu.title, menu %>
-				</div>
-			</div>
-		</div>
+		<!--<div class="col-md-4">-->
+		<%= render partial: 'shared/chefs', locals: {user: menu.user} %>
+		<!--</div>-->
 
 	<% end %>
 <% end %>	

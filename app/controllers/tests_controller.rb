@@ -44,6 +44,10 @@ def create
     
 end
 
+def chefs
+
+end 
+
   # PATCH/PUT /tests/1
   # PATCH/PUT /tests/1.json
   def update

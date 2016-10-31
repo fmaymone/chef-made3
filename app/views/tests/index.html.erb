@@ -1,9 +1,1 @@
-<%= render partial: "shared/chefs" , object:@user, as: 'chef' %>
-
-<h1><%= ENV["S3_BUCKET"] %></h1>
-<h1><%= ENV["S3_KEY_ID"] %></h1>
-<h1><%= ENV["S3_ACESS_KEY"] %></h1>
-<h1><%= ENV["AWS_REGION"] %></h1>
-
-
- 
+<%= render partial: 'shared/chefs', locals: {user: @user} %>

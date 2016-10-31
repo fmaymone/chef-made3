@@ -1,16 +1,23 @@
-<%= form_tag search_path, method: :get do %>
-	<div class="row">
-		<div class="col-md-6">
-			<%= text_field_tag :search, params[:search], placeholder: "Onde é o seu Evento?", class: "form-control" %>
-		</div>
-		<div class="col-md-2">
-			<%= text_field_tag :start_date, params[:start_date], placeholder: "Data Inicial", class: "form-control" %>
-		</div>
-		<div class="col-md-2">
-			<%= text_field_tag :end_date, params[:end_date], placeholder: "Data Final", class: "form-control" %>
-		</div>
-		<div class="col-md-2">
-			<%= submit_tag "Buscar", class: "btn btn-primary" %>
-		</div>
+<div class="row">
+	<div id="greywrap">
+				
+		<%= form_tag search_path, method: :get do %>
+			<div class="row">
+				<div class="col-md-6">
+					<%= text_field_tag :search, params[:search], placeholder: "Onde é o seu Evento?", class: "form-control" %>
+				</div>
+				<div class="col-md-2">
+					<%= text_field_tag :start_date, params[:start_date], placeholder: "Data Inicial", class: "form-control" %>
+				</div>
+				<div class="col-md-2">
+					<%= text_field_tag :end_date, params[:end_date], placeholder: "Data Final", class: "form-control" %>
+				</div>
+				<div class="col-md-2">
+					<%= submit_tag "Buscar", class: "btn btn-primary" %>
+				</div>
+			</div>
+		<% end %>
+		<br>
+		<br>
 	</div>
-<% end %>
+</div>

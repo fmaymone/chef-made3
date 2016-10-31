@@ -17,14 +17,14 @@ class RegistrationsController < Devise::RegistrationsController
 	
     	@documents = @user.documents.where("kind = 0")
 		  
-		 redirect_to edit_user_registration_url, notice: "Atualizado..."
+		 redirect_to edit_user_registration_path, notice: "Atualizado..."
 		else
 		  render :edit,notice: "Dados não atualizados"
 		end
 	end
   
 	def user_params
-		params.require(:user).permit(:fullname, :rg, :cpf, :miniCurriculo, :images, :document, :address, :kind)
+		params.require(:user).permit(:fullname, :rg, :cpf, :miniCurriculo, :images, :document, :address, :kind, :plan_id, :description, :phone_number)
 	end
 	
 	def show
@@ -36,6 +36,7 @@ class RegistrationsController < Devise::RegistrationsController
 		@documents = @user.documents.where("kind = 0")
 		@document = Document.new
 		@document.kind = :documentos
+		
 	end
 	
 	protected

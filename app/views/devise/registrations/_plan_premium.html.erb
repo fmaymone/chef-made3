@@ -1,6 +1,10 @@
-<%= form_for(@user, html: { class: "form-horizontal", role: "form" }) do |f| %>
+<%= form_for(resource, as: resource_name, :html => { multipart: true }, url: registration_path(resource_name), html: { :class => 'form-horizontal', method: :put }) do |f| %>
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-          <div class="blocks active-block">
+            <% if @user.plan.kind == 1 %>
+                <div class="blocks active-block">
+              <% else %>
+                <div class="">
+              <% end %>
               <div class="block-header">
                   <h4>PROFISSIONAL</h4>
               </div>

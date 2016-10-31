@@ -1,14 +1,16 @@
-<div class="container">
+<div>
     
   <div class="row">
-		<div id="documents"><%= render partial: 'documents/list', locals: {documents: @documents} %></div>
+    <% if @documents %>
+		  <div id="documents"><%= render partial: 'documents/list', locals: {documentos: @documents}  %></div>
+		<% end %>
   </div>
   <div class="row">
 		<%= render partial: "documents/new", object: @document, as: 'documentacao' %>
   </div>
   <div class="row">
     
-</div>
+  </div>
 </div>
 
 

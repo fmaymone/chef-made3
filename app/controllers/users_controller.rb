@@ -34,9 +34,10 @@ class UsersController < ApplicationController
     end
     
     def edit
-        # @user = User.find(params[:id])
+        @user = User.find(params[:id])
         # puts @user.email
         @documents = @user.documents.where(kind: 0)
+        edit_user_registration_path
     end
     
     def destroy
@@ -51,6 +52,11 @@ class UsersController < ApplicationController
         # Use callbacks to share common setup or constraints between actions.
         def set_user
           @user = User.find(params[:id])
+          @documents = @user.documents.where(kind: 0)
+          puts "sasdasdasdasdasdasdasdasdasdasdasdasdasdasd"
+          puts @documents
+          puts "sasdasdasdasdasdasdasdasdasdasdasdasdasdasd"
+          
         end
     
     
