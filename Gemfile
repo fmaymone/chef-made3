@@ -43,6 +43,7 @@ gem 'active_bootstrap_skin'
 gem 'will_paginate', '~> 3.1.0'
 gem 'rails_12factor', group: :production
 gem 'google-webfonts-rails'
+gem 'rails_serve_static_assets'
 
 gem 'geocoder'
 gem 'bootstrap-generators', '~> 3.3.4'
