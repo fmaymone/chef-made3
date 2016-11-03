@@ -1,7 +1,7 @@
 <div class="col-lg-6 blog-bg">
 	<div class="col-lg-4 centered">
 	<br>
-		<p><%= image_tag(user.image,{class: 'img img-circle', height: '60px', width: '60px'}) %></p>
+		<p><%= image_tag(avatar_url(user),{class: 'img img-circle', height: '60px', width: '60px'}) %></p>
 			
 		<h4><%= user.fullname %></h4>
 		<h5><%= user.email %></h5>

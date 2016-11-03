@@ -17,11 +17,11 @@
 <br>
 
 <div class="row">
-<% if @menus %>
-	<% @menus.each do |menu| %>
+<% if @users %>
+	<% @users.each do |user| %>
 		
 		<!--<div class="col-md-4">-->
-		<%= render partial: 'shared/chefs', locals: {user: menu.user} %>
+		<%= render partial: 'shared/chefs', locals: {user: user} %>
 		<!--</div>-->
 
 	<% end %>

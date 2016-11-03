@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
   def home
-  	@menus = Menu.limit(3)
+  # 	@menus = Menu.limit(3)
+    
   	homeUsers
   end
   def cadastrar
@@ -9,7 +10,7 @@ class PagesController < ApplicationController
   
   def homeUsers
   # 	@users = User.where(:plan_id => 2).limit(3)
-    @users = User.limit(3)
+    @users = User.where(:status => User.professional)
   end
 
   def search
