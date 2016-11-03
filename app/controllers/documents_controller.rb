@@ -74,8 +74,8 @@ class DocumentsController < ApplicationController
 		user = @document.user
 
 		@document.destroy
-		@documents = Document.where(user_id: user.id)
-
+		@documents = Document.where(user_id: user.id, kind: Document.documentos)
+		
 		respond_to :js
 	end
 

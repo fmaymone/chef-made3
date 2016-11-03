@@ -24,7 +24,7 @@
 
 		        var marker = new google.maps.Marker({
 		        	position: new google.maps.LatLng(<%= @user.latitude %>, <%= @user.longitude %>),
-		        	title: "AirAlien" 
+		        	title: "<%= @user.fullname %>"
 		        });
 
 		        marker.setMap(map);

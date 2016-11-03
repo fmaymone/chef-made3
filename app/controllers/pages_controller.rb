@@ -21,27 +21,41 @@ class PagesController < ApplicationController
   	arrResult = Array.new
 
   	if session[:loc_search] && session[:loc_search] != ""
-  		@menus_address = Menu.user.near(session[:loc_search], 5, order: 'distance')
-  		puts "Session Funcionou"
-  		puts @menu_adress
+  		@user_address = User.near(session[:loc_search], 5, order: 'distance')
+  	
+  	
   	else
   	  "Session Nao Funcionou"
-  		@menus_address = Menu.all
+  		@user_address = User.all
   	end
-
-  	@search = @menus_address.ransack(params[:q])
+    
+    
+  # 	@user_address = User.all
+  	@arrMenus = Array.new
+   
+    @user_address.each do |user|
+      user.menus.each do |menu|
+      
+        @arrMenus.push(menu)
+      	
+      end
+    end 
+    
+    @search = Menu.ransack(params[:q])
   	@menus = @search.result
-
-  	@arrMenus = @menus.to_a
+	  
+  	
+  	
+  
 
   	if (params[:start_date] && params[:end_date] && !params[:start_date].empty? & !params[:end_date].empty?)
 
   		start_date = Date.parse(params[:start_date])
   		end_date = Date.parse(params[:end_date])
 
-  		@menus.each do |menu|
+  		@arrMenus.each do |menu|
 
-  			not_available = menu.reservations.where(
+  			not_available = menu.user.reservations.where(
   					"(? <= start_date AND start_date <= ?)
   					OR (? <= end_date AND end_date <= ?) 
   					OR (start_date < ? AND ? < end_date)",

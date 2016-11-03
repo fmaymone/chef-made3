@@ -106,15 +106,9 @@
 				<div class="row">
 					<% @arrMenus.each do |menu| %>
 						
-						<div class="col-md-6">
-							<div class="panel panel-default">
-								<div class="panel-heading preview">
-									<%= image_tag menu.documents[0].image.url(:medium) if menu.documents.length > 0 %>
-								</div>
-								<div class="panel-body">
-									<%= link_to menu.title, menu %>
-								</div>
-							</div>
+						<div class="col-md-4 ">
+							<%= render partial: "shared/menu_thumb", locals: {menu: menu} %>
+							
 						</div>
 
 					<% end %>

@@ -9,3 +9,9 @@ AdminUser.create!(email: 'admin@example.com', password: 'password', password_con
 
 Plan.create!(kind: 0, title:"Plano Básico", value: 350, description: "Plano Básico com Direito a...")
 Plan.create!(kind: 1, title:"Plano Profissional", value: 900, description: "Plano Profissional com Direito a...")
+
+Tag.create!(name: "Brasileira")
+Tag.create!(name: "Alemã")
+Tag.create!(name: "Francesa")
+Tag.create!(name: "Japonesa")
+Tag.create!(name: "Italiana")

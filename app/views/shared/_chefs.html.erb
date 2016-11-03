@@ -1,14 +1,15 @@
-<div class="col-lg-3 centered">
-	<img class="img img-circle" src=<%= user.image %> alt="" height="120px" width="120px">
+<div class="col-lg-3 centered blog-content">
 	
 	
-	<%= link_to 'Exibir', user %>
+	<%= link_to image_tag(user.image,{class: 'img img-circle', height: '120px', width: '120px'}), user_path(user) %>
+	
+	
 	
 	<br>
 	<h4><b><%= user.fullname %></b></h4>
-	<a href="#" class="icon icon-twitter"></a>
-	<a href="#" class="icon icon-facebook"></a>
-	<a href="#" class="icon icon-flickr"></a>
+	<i class="fa fa-user"></i> 
+	
+	
 	<p><%= user.description %></p>
 	
 </div>
