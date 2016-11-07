@@ -47,16 +47,16 @@ class PagesController < ApplicationController
 	  
   	
   	
-  
+  @arrMenus.each do |menu|
 
   	if (params[:start_date] && params[:end_date] && !params[:start_date].empty? & !params[:end_date].empty?)
 
   		start_date = Date.parse(params[:start_date])
   		end_date = Date.parse(params[:end_date])
 
-  		@arrMenus.each do |menu|
+  		
 
-  			not_available = menu.user.reservations.where(
+  			not_available = menu.reservations.where(
   					"(? <= start_date AND start_date <= ?)
   					OR (? <= end_date AND end_date <= ?) 
   					OR (start_date < ? AND ? < end_date)",
@@ -64,13 +64,46 @@ class PagesController < ApplicationController
   					start_date, end_date,
   					start_date, end_date
   				).limit(1)
-
+      
+        
+        
+        
+  			
   			if not_available.length > 0
   				@arrMenus.delete(menu)	
   			end	
 
   		end
-
+  	 if params[:q]
+  	  low = 0 
+  	  high = 100000000
+  	  
+  	  if params[:q][:price_lteq].to_i > 0
+  	    low = params[:q][:price_lteq].to_i
+  	  end
+  	  
+  	  if params[:q][:price_gteq].to_i > 0
+  	    high = params[:q][:price_gteq].to_i
+  	  end
+  	  
+  	  
+  	    puts "O preço minimo é " + low.to_s
+        puts "O preço maximo é " + high.to_s
+        puts "O preço do menu é " + menu.price.to_s
+        # if params[:q][:price_lteq].to_i < menu.price ||params[:q][:price_gteq].to_i > menu.price
+        #   puts "O menu vai ser removido da lista " 
+        #   @arrMenus.delete(menu)	
+        # else
+        #   puts "O menu vai permanecer" 
+        # end
+        if menu.price.between?(low, high)
+          puts "O menu vai permanecer" 
+        else
+          puts "O menu vai ser removido da lista " 
+          @arrMenus.delete(menu)	
+        end
+      
+      end
   	end
 
   end

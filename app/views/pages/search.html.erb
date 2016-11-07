@@ -1,47 +1,6 @@
-<div id="wrapper">
-	
-<div id="sidebar">
-		<div id="widget" class="sticky">
 
-			<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDrTLFgSx9QXy8Cjd9DU-Hv-vjdi1qUPRY"></script>
-	    <script>
-	      function initialize() {
-	        var mapCanvas = document.getElementById('widget');
-	        var mapOptions = {
-	        	<% if @arrMenus.length > 0 %>
-		          center: new google.maps.LatLng(<%= @arrMenus[0].user.latitude %>, <%= @arrMenus[0].user.longitude %>),
-		        <% else %>  
-		        	center: new google.maps.LatLng(44.5403, -78.5463),
-		        <% end %>  
-	          zoom: 14,
-	          mapTypeId: google.maps.MapTypeId.ROADMAP
-	        }
-	        var map = new google.maps.Map(mapCanvas, mapOptions);
-	        
-   
-	        <% @arrMenus.each do |menu| %>	
-	        
-		        var marker = new google.maps.Marker({
-		        	position: new google.maps.LatLng(<%= menu.user.latitude %>, <%= menu.user.longitude %>),
-		        	title: '<%= menu.user.fullname %>'
-		        	
-		        });
-					marker.addListener('click', function() {
-					    map.setZoom(18);
-					    map.setCenter(marker.getPosition());
-				    	
-				     
-					});
-		        marker.setMap(map);
-	        <% end %>
-	      }
-	      google.maps.event.addDomListener(window, 'load', initialize);
-	      
-	     
-	    </script>
-			
-		</div>
-	</div>
+	
+
 
 	<div id="article">
 		
@@ -52,32 +11,20 @@
 				<%= search_form_for @search, url: search_path do |f| %>
 					
 					<div class="row">
-						<div class="col-md-3">
+						<div class="col-md-2">
 							<%= text_field_tag :start_date, params[:start_date], placeholder: "Data Inicial", class: "form-control" %>
 						</div>
-						<div class="col-md-3">
+						<div class="col-md-2">
 							<%= text_field_tag :end_date, params[:end_date], placeholder: "Data Final", class: "form-control" %>
 						</div>
-						<div class="col-md-3">
-							<%= f.text_field :price_gteq, placeholder: "Preço Mínimo", class: "form-control" %>
+						<div class="col-md-2">
+							<%= f.text_field :price_lteq, placeholder: "Preço Mínimo", class: "form-control" %>
 						</div>
-						<div class="col-md-3">
-							<%= f.text_field :price_lteq, placeholder: "Preço Máximo", class: "form-control" %>
-						</div>
-					</div>
-
-					<hr>
-
-					<div class="row">
-					
-						<div class="col-md-4">
-							<%= check_box_tag "q[menu_type_eq_any][]", "Todo" %> Todo o Local
+						<div class="col-md-2">
+							<%= f.text_field :price_gteq, placeholder: "Preço Máximo", class: "form-control" %>
 						</div>
 						<div class="col-md-4">
-							<%= check_box_tag "q[menu_type_eq_any][]", "Privado" %> Privado
-						</div>
-						<div class="col-md-4">
-							<%= check_box_tag "q[menu_type_eq_any][]", "Compartilhado" %> Compartilhado
+							<%= f.submit "Buscar", class: "btn btn-primary" %>
 						</div>
 					</div>
 
@@ -85,18 +32,6 @@
 
 					<div class="row">
 						
-					</div>
-
-					<hr>
-
-					<div class="row">
-					
-					</div>
-
-					<br>
-
-					<div class="row">
-						<%= f.submit "Buscar", class: "btn btn-primary" %>
 					</div>
 
 				<% end %>

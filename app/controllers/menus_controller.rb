@@ -124,24 +124,13 @@ class MenusController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def menu_params
-     params.require(:menu).permit(:description, :title, :entrada, :principal, :sobremesa ,:kind, :menu_id, tag_ids: []  )
+     params.require(:menu).permit(:description, :title, :entrada, :principal, :sobremesa ,:kind, :menu_id, :price,  tag_ids: []  )
      
     end
     
     def updateMenuTag
-     puts "*************updateMenuTag"
+     
      puts params[:menu]
-     puts "*************updateMenuTag"
-      if params[:tag_ids] 
-	       # params[:tags].each do |tag|
-	        	
-	       # 	@menu_tag = MenuTag.new
-	       # 	@menu_tag.user = current_user
-	       # 	@menu_tag.tag = tag
-	       # 	@menu_tag.save
-	          
-	          
-	       # end
-	      end
+     
     end
 end
