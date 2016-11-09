@@ -4,7 +4,7 @@ development:
   template: template0
   pool: 5
   timeout: 5000
-test:
+test: &test
   adapter: postgresql
   database:  chef-made-test
   template: template0
@@ -26,3 +26,6 @@ production:
   database: chef-made-production
   host: localhost
   port: 5432
+
+cucumber:
+  <<: *test

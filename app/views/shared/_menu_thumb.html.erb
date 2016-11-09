@@ -1,12 +1,34 @@
-<div class="grid mask">
-		<figure>
-		    <%= link_to image_tag(menu.documents[0].image,{class: 'img-responsive'}), menu_path(menu) %>
-			
-			
-			<figcaption>
-				<h5><%= menu.title %></h5>
+<div class = "blog-content">
+	
+		<div class="grid mask">
+			<figure>
+			    <%= link_to image_tag(menu.documents[0].image,{class: 'img-responsive'}), menu_path(menu) %>
 				
 				
-			</figcaption><!-- /figcaption -->
-		</figure><!-- /figure -->
-	</div><!-- /grid-mask -->
+				<figcaption>
+					<h5><%= menu.title %></h5>
+				</figcaption><!-- /figcaption -->
+			</figure><!-- /figure -->
+			
+		</div><!-- /grid-mask -->
+		
+		<div class="categ-menu">
+			<h6><center><%= menu.tags[0].name %></center></h4>
+		</div>
+		<div class="info-menu">
+			<h7><center><%= menu.title %></center></h3>
+			<br>
+			<br>
+		</div>
+		<div class = "price-menu menu-list">
+			<p>R$ <%= menu.price %> / Pessoa</p>
+			
+		</div>
+		<div class = "menu-list">
+			<%= link_to image_tag(avatar_url(menu.user),{class: 'img img-circle', height: '60px', width: '60px'}), user_path(menu.user) %> 
+			por <b><%= menu.user.fullname %></b>
+			<br>
+			<br>
+			<br>
+		</div>
+</div><!-- /col blog content -->

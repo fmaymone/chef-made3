@@ -70,6 +70,11 @@ group :development, :test do
   gem 'byebug'
   # gem 'sqlite3'
   gem 'pg'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'cucumber-rails', require: false
+  gem 'database_cleaner'
+  gem 'selenium-webdriver'
 end
 
 group :development do
@@ -81,4 +86,6 @@ group :development do
   
   
 end
-
+group :test do
+  gem 'shoulda-matchers'
+end

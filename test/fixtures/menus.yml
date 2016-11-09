@@ -1,7 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
+  title: "Esse é o titulo teste 1"
+  description: "Esse é o Menu teste 1"
 
-two:
-  name: MyString
+menu_incrivel_test1:
+  title: "Esse é o titulo teste 1"
+  description: "Esse é o Menu teste 1"
+
+menu_incrivel_test2:
+  title: "Esse é o titulo teste 2"
+  description: "Esse é o Menu teste 2"

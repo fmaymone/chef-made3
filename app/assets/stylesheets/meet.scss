@@ -1,0 +1,160 @@
+.left {
+	float:left!important
+}
+.right {
+	float:right!important
+}
+.sidebar {
+    width: 380px;
+}
+ui-datepicker {
+	background-color:#fff;
+	color:#00834f;
+	font-size:16px;
+	padding:10px 20px;
+	top:50px!important;
+	left:0!important;
+	z-index:9999!important;
+	border:1px solid #e0dcdb
+}
+.ui-datepicker .ui-datepicker-next,.ui-datepicker .ui-datepicker-prev {
+	width:20px;
+	height:20px;
+	background-repeat:no-repeat;
+	background-image:url(../../public/media/static/ico/arrow-md.png);
+	background-position:center center;
+	background-color:transparent!important;
+	cursor:pointer
+}
+.ui-datepicker .ui-datepicker-next.ui-state-disabled,.ui-datepicker .ui-datepicker-prev.ui-state-disabled {
+	opacity:.3;
+	filter:alpha(opacity=30)
+}
+.ui-datepicker .ui-datepicker-prev {
+	-webkit-transform:rotate(-180deg);
+	-moz-transform:rotate(-180deg);
+	-ms-transform:rotate(-180deg);
+	-o-transform:rotate(-180deg);
+	transform:rotate(-180deg)
+}
+.ui-datepicker-title {
+	color:#62524c;
+	font-weight:400
+}
+.ui-datepicker th {
+	border:none;
+	background:0 0;
+	color:#000;
+	padding:.9em .3em;
+	font-weight:400
+}
+.ui-datepicker table {
+	font-size:14px
+}
+.ui-state-active {
+	background:#00834f;
+	color:#fff
+}
+.ui-state-highlight {
+	font-weight:600;
+	color:#666
+}
+.ui-datepicker td a,.ui-datepicker td span {
+	text-align:center
+}
+.ui-state-hover {
+	background:#00834f;
+	color:#fff
+}
+.ui-datepicker-group-first {
+	border-right:1px solid #d8d8d8
+}
+.ui-datepicker-mouseover1 {
+	background:#fff!important
+}
+.ui-datepicker-unselectable.ui-state-disabled {
+	background:0 0!important;
+	color:#ddd
+}
+.input-pattern {
+	position:relative;
+	padding:0 13px;
+	margin-bottom:20px;
+	border:1px solid #e0dcdb
+}
+.input-pattern .fa-calendar {
+	font-size:16px;
+	position:absolute;
+	right:13px;
+	top:14px;
+	z-index:1
+}
+.input-pattern input,.input-pattern textarea {
+	width:100%;
+	font-size:14px;
+	color:#62524c;
+	margin:0;
+	border:none;
+	resize:none;
+	outline:0;
+	background:0 0
+}
+.input-pattern input::-webkit-input-placeholder,.input-pattern textarea::-webkit-input-placeholder {
+	color:#62524c
+}
+.input-pattern input::-moz-placeholder,.input-pattern textarea::-moz-placeholder {
+	color:#62524c
+}
+.input-pattern input:-ms-input-placeholder,.input-pattern textarea:-ms-input-placeholder {
+	color:#62524c
+}
+.input-pattern input:-o-input-placeholder,.input-pattern textarea:-o-input-placeholder {
+	color:#62524c
+}
+.input-pattern input {
+	height:45px;
+	padding:0
+}
+.input-pattern textarea {
+	padding:13px;
+	height:100px
+}
+.input-pattern.textarea-pattern {
+	padding:0
+}
+.input-pattern.checkbox-area {
+	border:none;
+	padding:0;
+	text-align:left;
+	margin-bottom:0
+}
+.custom-select {
+	width:100%;
+	font-size:14px;
+	color:#62524c;
+	display:block;
+	background:#fff;
+	height:50px;
+	text-indent:7px;
+	position:relative;
+	top:4px;
+	border:1px solid #e0dcdb
+}
+.input-sm {
+	width:46%;
+	float:left
+}
+.input-md {
+	width:60%;
+	float:left
+}
+.input-sm2 {
+	width:32%;
+	float:left
+}
+.input-lg {
+	width:100%
+}
+.margin-input {
+	margin-right:8%
+}
