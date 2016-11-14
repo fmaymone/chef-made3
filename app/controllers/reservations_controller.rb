@@ -8,8 +8,14 @@ class ReservationsController < ApplicationController
 		# reservations = menu.reservations.where("start_date >= ? OR end_date >= ?", today, today)
 		menu = Menu.find(params[:menu_id])
 		today = Date.today
+		# today = Date.today.to_time_in_current_zone
+		
 		reservations = menu.reservations.where("start_date >= ? OR end_date >= ?", today, today)
-
+		
+		
+	
+	
+	
 		render json: reservations	
 	end
 
@@ -25,15 +31,9 @@ class ReservationsController < ApplicationController
 	end
 
 	def create
-		
-	
 		if is_user_same_menu
 			@reservation = current_user.reservations.create(reservation_params)	
-			if @reservation
-				redirect_to @reservation.reservable, notice: "Reserva criada com sucesso..."
-			else
-				redirect_to this_menu, :notice => "Problemas ao criar a reserva..."
-			end
+			redirect_to @reservation.reservable, notice: "Reserva criada com sucesso..."
 		else
 			redirect_to this_menu, :notice => "Este menu pertence a você..."
 		end
@@ -60,7 +60,7 @@ class ReservationsController < ApplicationController
 		end
 
 		def reservation_params
-			params.require(:reservation).permit(:start_date, :end_date,:address, :price, :total, :reservable_id, :reservable_type)
+			params.require(:reservation).permit(:start_date, :end_date, :price, :total, :reservable_id, :reservable_type)
 		end
 		
 		def is_user_same_menu

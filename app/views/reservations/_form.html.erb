@@ -9,14 +9,11 @@
 
 	<div class="row">
 		<div class="col-md-6">
-			<label>Inicio</label>
+			<label>Data do Evento</label>
 			
 			<%= f.text_field :start_date, readonly: 'true', placeholder: 'Data Inicial', class: 'form-control' %>		
 		</div>
-		<div class="col-md-6">
-			<label>Fim</label>
-			<%= f.text_field :end_date, readonly: 'true', placeholder: 'Data Final', class: 'form-control', disabled: 'true' %>		
-		</div>
+	
 	</div>
 
 	<%= f.hidden_field :reservable_id, value: reservable.id %>
@@ -73,9 +70,19 @@
 			success: function(data) {
 
 				$.each(data, function(arrID, arrValue) {
-					for(var d = new Date(arrValue.start_date) ; d <= new Date(arrValue.end_date); d.setDate(d.getDate() + 1)) {
-						unavailableDates.push($.datepicker.formatDate('d-m-yy', d));
-					}
+					// for(var d = new Date(arrValue.start_date) ; d <= new Date(arrValue.end_date); d.setDate(d.getDate() + 1)) {
+					// 	unavailableDates.push($.datepicker.formatDate('d-m-yy', d));
+					// }
+					var year = arrValue.start_date.substring(0, 4);
+					var month = arrValue.start_date.substring(5, 7) - 1;
+					var day = arrValue.start_date.substring(8, 10);
+					console.log("ano " + year + "mes " + month + "dia" + day);
+					var d = new Date(year, month, day);
+					
+					console.log("Data d: " + d);
+					
+					console.log("datepicker" + $.datepicker.formatDate('d-m-yy', d ));
+					unavailableDates.push($.datepicker.formatDate('d-m-yy', d ));
 				});
 
 				$('#reservation_start_date').datepicker({
@@ -84,16 +91,16 @@
 					maxDate: '3m',
 					beforeShowDay: unavailable,
 					onSelect: function(selected) {
-						$('#reservation_end_date').datepicker("option", "minDate", selected);
-						$('#reservation_end_date').attr('disabled', false);
+						//$('#reservation_end_date').datepicker("option", "minDate", selected);
+						$('#btn_book').attr('disabled', false);
 
 						var start_date = $(this).datepicker('getDate');
-						var end_date = $('#reservation_end_date').datepicker('getDate');
-						var days = (end_date - start_date)/1000/60/60/24 + 1
+						//var end_date = $('#reservation_end_date').datepicker('getDate');
+						var days = start_date/1000/60/60/24 + 1
 
 						var input = {
 							'start_date': start_date,
-							'end_date': end_date,
+							//'end_date': end_date,
 							'menu_id': <%= reservable.id %>
 						}
 

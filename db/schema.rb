@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161109134829) do
+ActiveRecord::Schema.define(version: 20161109182052) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -163,6 +163,7 @@ ActiveRecord::Schema.define(version: 20161109134829) do
     t.float    "latitude"
     t.float    "longitude"
     t.text     "address"
+    t.integer  "number_people"
   end
 
   add_index "reservations", ["reservable_id"], name: "index_reservations_on_reservable_id", using: :btree

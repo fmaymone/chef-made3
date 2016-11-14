@@ -7,6 +7,7 @@
 
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
       <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
+       
       
       <%= google_webfonts_init({
         google: ['Raleway:400,300,700', 'Lato:300,400,700,300italic,400italic']
@@ -14,6 +15,7 @@
       
      
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag( 'https://maps.googleapis.com/maps/api/js?key=AIzaSyD3UmNulyq1_cnKE5XiOFd2HOgV9Wievgo' ) %>
     <%= csrf_meta_tags %>
   </head>
   <body>

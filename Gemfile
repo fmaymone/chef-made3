@@ -44,6 +44,7 @@ gem 'will_paginate', '~> 3.1.0'
 gem 'rails_12factor', group: :production
 gem 'google-webfonts-rails'
 gem 'rails_serve_static_assets'
+gem 'jquery-form-validator-rails'
 
 gem 'geocoder'
 gem 'bootstrap-generators', '~> 3.3.4'
