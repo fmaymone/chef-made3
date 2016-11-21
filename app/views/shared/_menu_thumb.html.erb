@@ -2,7 +2,10 @@
 	
 		<div class="grid mask">
 			<figure>
-			    <%= link_to image_tag(menu.documents[0].image,{class: 'img-responsive'}), menu_path(menu) %>
+			    
+			    <% if menu.documents[0] %>
+			    	<%= link_to image_tag(menu.documents[0].image,{class: 'img-responsive'}), menu_path(menu)  %>
+			    <% end %>
 				
 				
 				<figcaption>
@@ -13,7 +16,7 @@
 		</div><!-- /grid-mask -->
 		
 		<div class="categ-menu">
-			<h6><center><%= menu.tags[0].name %></center></h4>
+			<h6><center><%= menu.tags[0].name if menu.tags[0] %></center></h4>
 		</div>
 		<div class="info-menu">
 			<h7><center><%= menu.title %></center></h3>
