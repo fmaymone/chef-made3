@@ -89,7 +89,7 @@
       <%= f.label :tag_ids, "Tag do Menu:", class: "col-sm-2 control-label" %>
       <div class="col-sm-10">
            <%= f.select :tag_ids, Tag.all.collect { |p| [ p.name, p.id ] }, {prompt: "Selecione as Tags"},
-          {:multiple => false, class: "input-md" , :required => true} %>
+          {:multiple => false, class: "input-md"} %>
        </div>
    </div>
    </div>
