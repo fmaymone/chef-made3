@@ -90,6 +90,7 @@ class MenusController < ApplicationController
     	        	
     	          @menu.documents.create(image: image)
     	          @menu.documents.kind = :cardapio
+    	          
     	     
     	        end
     	   end
@@ -124,7 +125,7 @@ class MenusController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def menu_params
-     params.require(:menu).permit(:description, :title, :entrada, :principal, :sobremesa ,:kind, :menu_id, :price,  tag_ids: []  )
+     params.require(:menu).permit(:description, :title, :entrada, :principal, :sobremesa ,:kind, :menu_id, :price,  :tag_ids )
      
     end
     

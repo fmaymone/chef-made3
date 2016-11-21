@@ -17,8 +17,9 @@
     </div>
     <div class="form-group">
       
-      
+      <% if @user.address.length > 0 %>
         <%= render 'location' %>
+      <% end %>
       
     </div>
     <div class="form-group">

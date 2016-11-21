@@ -22,6 +22,12 @@ class User < ActiveRecord::Base
   has_many :reservables  
   has_many :reviews, as: :reviewable
   
+  after_create :send_admin_mail
+ 
+  def send_admin_mail
+    UserMailer.send_new_user_message(self).deliver
+  end
+  
  
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
