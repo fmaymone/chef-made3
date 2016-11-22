@@ -7,11 +7,8 @@ class RegistrationsController < Devise::RegistrationsController
 		  if params[:images] 
 	        params[:images].each do |image|
 	        
-	          
-	          
 	          @user.documents.create(image: image)
 	         
-	     
 	        end
 	      end
 	

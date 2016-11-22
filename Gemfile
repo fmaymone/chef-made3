@@ -52,6 +52,7 @@ gem 'jquery-ui-rails'
 
 gem 'private_pub'
 gem 'thin'
+gem 'mandrill-api'
 
 gem 'ransack'
 
