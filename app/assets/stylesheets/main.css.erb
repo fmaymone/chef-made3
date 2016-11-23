@@ -34,14 +34,14 @@ $primary-color: #3498db;
  */
 
 ::-moz-selection {
-    background: #f2c2c9;
-    color: #a4003a;
+    background: $primary-color;
+    //color: #a4003a;
     text-shadow: none;
 }
 
 ::selection {
     background: #16a085;
-    color: #a4003a;
+    //color: #a4003a;
     text-shadow: none;
 }
 
@@ -239,7 +239,7 @@ blockquote cite:before {
 
 /* Links */
 a {
-    color: #3498db;
+   // color: #3498db;
     word-wrap: break-word;
 
     -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
@@ -251,7 +251,8 @@ a {
 
 a:hover,
 a:focus {
-    color: #c0392b;
+    //color: #c0392b;
+    transition: background 1.0s ease;
     text-decoration: none;
     outline: 0;
 }

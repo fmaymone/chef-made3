@@ -1,34 +1,44 @@
-<div class="row">
-  <div class="col-md-6 col-md-offset-3 text-center">
-    
-    <%= link_to "Sign In with Facebook", omniauth_authorize_path(resource_name, "facebook"), class: "btn btn-primary" %>
-    <%= link_to "Sign In with Google" ,user_omniauth_authorize_path(:google_oauth2), class: "btn btn-primary" %>
-     
-    
-    <h2>Sign up</h2>
+<div class="card card-container">
+ <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= render 'shared/devisemes' %>
-
+    <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+    <p id="profile-name" class="profile-name-card"></p>
+    <form class="form-signin">
+        <span id="reauth-email" class="reauth-email"></span>
+          
       <div class="form-group">        
-        <%= f.text_field :fullname, :class => 'form-control', :placeholder => 'Full Name', autofocus: true %>
+        <%= f.text_field :fullname, :class => 'form-control', :placeholder => 'Apelido', autofocus: true %>
       </div>
-
-      <div class="form-group">        
-        <%= f.email_field :email, :class => 'form-control', :placeholder => 'Email' %>
-      </div>
+       <div class="form-group">
+        <%= f.email_field :email, autofocus: true, :class => "form-control", :placeholder => "Email" %>
+       </div>
 
       <div class="form-group">        
         <% if @validatable %>
-          <em>(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %><br />
-        <%= f.password_field :password, :class => 'form-control', :placeholder => 'Password',  autocomplete: "off" %>
+          <em>(<%= @minimum_password_length %> caracteres mínimos)</em>
+        <% end %>
+        <%= f.password_field :password, autocomplete: "off", :class => "form-control", :placeholder => "Senha " %>
       </div>
+       <div class="actions">
+          <%= f.submit "Log in", :class => "btn btn-lg btn-primary btn-block btn-signin" %>
+          <%= link_to "Esqueci a senha", new_user_password_path, :class => "forgot-password" %>
+       </div>
+       <br>
+       <div class="row">
+          <center><label>Ou cadastre-se com sua conta:</label></center>
+       <br>
+  				<div class="col-xs-6 col-sm-6 col-md-6">
+           <center> <%= link_to "", omniauth_authorize_path(resource_name, "facebook"), class: "fa fa-facebook fa-2x " %></center>
+  				</div>
+  				<div class="col-xs-6 col-sm-6 col-md-6">
+  					 <center><%= link_to "",  omniauth_authorize_path(resource_name, "google_oauth2"), class: "fa fa-google-plus fa-2x " %></center>     
+  				</div>
+		    </div>
+            
+            
+        </form><!-- /form -->
 
-      <div class="actions">
-        <%= f.submit "Sign up", :class => "btn btn-primary" %>
-      </div>
+     
     <% end %>
 
-  </div>
 </div>
