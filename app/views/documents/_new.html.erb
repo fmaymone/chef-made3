@@ -2,9 +2,10 @@
 <%= form_for(Document.new, html: { :class => 'dropzone',id: "my-dropzone" , multipart: true  }) do |f| %>
 
  
- <%= f.hidden_field :kind, value: documentacao.kind %>
- <%= f.hidden_field :menu_id, value: documentacao.menu_id %>
- 
+ <% if documentacao %>
+     <%= f.hidden_field :kind, value: documentacao.kind %>
+     <%= f.hidden_field :menu_id, value: documentacao.menu_id %>
+ <% end %>
  
   <div class="dz-message needsclick">
     <h3>Arraste os Arquivos aqui</h3> ou <strong>clique</strong> aqui para Carregar

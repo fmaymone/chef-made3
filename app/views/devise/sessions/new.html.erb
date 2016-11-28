@@ -1,5 +1,6 @@
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= render 'shared/devisemes' %>
     <div class="card card-container">
        
         <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
@@ -31,7 +32,7 @@
            
             <div class="row">
               <center><label>Ou entre com sua conta:</label></center>
-                  <br>
+          <br>
   				<div class="col-xs-6 col-sm-6 col-md-6">
                       <center> <%= link_to "", omniauth_authorize_path(resource_name, "facebook"), class: "fa fa-facebook fa-2x " %></center>
   				</div>

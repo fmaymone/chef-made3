@@ -19,6 +19,7 @@
       
       
         <%= render 'location' %>
+   
       
     </div>
     <div class="form-group">
@@ -48,7 +49,7 @@
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <div>Aguardando Confirmação no email: <%= resource.unconfirmed_email %></div>
     <% end %>
-
+    
     <div class="form-group">
       <%= f.password_field :password, autocomplete: "off", :placeholder => "Mudar Senha (deixe esse campo em branco se não quiser alterar)", :class => 'form-control' %>
     </div>
@@ -56,6 +57,7 @@
     <div class="form-group">
       <%= f.password_field :password_confirmation, autocomplete: "off", :placeholder => "Repita a Senha", :class => 'form-control' %>
     </div>
+    
     
     <div class="actions">
       <%= f.submit "Salvar", :class => "btn btn-primary" %>

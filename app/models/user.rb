@@ -32,10 +32,15 @@ class User < ActiveRecord::Base
      self.status == 'professional' ? true : false
   end
   
+  def canUpdateDocs
+     self.status == 'pending_docs' ? true : false 
+  end
+  
   def self.new_with_session(params,session)
     if session["devise.user_attributes"]
       new(session["devise.user_attributes"],without_protection: true) do |user|
         user.attributes = params
+        user.status = 'active'
         user.valid?
         
       end
