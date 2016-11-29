@@ -1,35 +1,49 @@
-<div class="row">
-  <div class="col-md-6 col-md-offset-3 text-center">
-
-    
-    <%= link_to "Sign In with Facebook", omniauth_authorize_path(resource_name, "facebook"), class: "btn btn-primary" %>
-    <%= link_to "Sign In with Google",  omniauth_authorize_path(resource_name, "google_oauth2"), class: "btn btn-primary" %>
-     
-    <h2>Log in</h2>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <%= render 'shared/devisemes' %>
-      
-      <div class="form-group">
-        <%= f.email_field :email, autofocus: true, :class => "form-control", :placeholder => "Email" %>
-      </div>
+    <div class="card card-container">
+       
+        <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+        <p id="profile-name" class="profile-name-card"></p>
+        <form class="form-signin">
+            <span id="reauth-email" class="reauth-email"></span>
+              <div class="form-group">
+                <%= f.email_field :email, autofocus: true, :class => "form-control", :placeholder => "Email" %>
+              </div>
+              
+              <div class="form-group">
+                <%= f.password_field :password, autocomplete: "off", :class => "form-control", :placeholder => "Password" %>
+              </div>
+               
+               <% if devise_mapping.rememberable? %>
+               <div id="remember" class="checkbox">
+                  <label>
+                      <input type="checkbox" value="remember-me">Lembrar
+                  </label>
+                </div>
+          
+               <% end %>
+              <div class="actions">
+                <%= f.submit "Log in", :class => "btn btn-lg btn-primary btn-block btn-signin" %>
+                <%= link_to "Esqueci a senha", new_user_password_path, :class => "forgot-password" %>
+              </div>
+              <br>
+              
+           
+            <div class="row">
+              <center><label>Ou entre com sua conta:</label></center>
+                  <br>
+  				<div class="col-xs-6 col-sm-6 col-md-6">
+                      <center> <%= link_to "", omniauth_authorize_path(resource_name, "facebook"), class: "fa fa-facebook fa-2x " %></center>
+  				</div>
+  				<div class="col-xs-6 col-sm-6 col-md-6">
+  					 <center><%= link_to "",  omniauth_authorize_path(resource_name, "google_oauth2"), class: "fa fa-google-plus fa-2x " %></center>     
+  				</div>
+		    </div>
+            
+            
+        </form><!-- /form -->
 
-      <div class="form-group">
-        <%= f.password_field :password, autocomplete: "off", :class => "form-control", :placeholder => "Password" %>
-      </div>
-
-      <% if devise_mapping.rememberable? %>
-        <div class="form-group">
-          <%= f.check_box :remember_me %> Remember Me
-        </div>
-      <% end %>
-
-      <div class="actions">
-        <%= f.submit "Log in", :class => "btn btn-primary" %>
-        <%= link_to "Forgot Password", new_user_password_path, :class => "btn btn-primary" %>
-      </div>
-    <% end %>
-  </div>
-</div>
-
-
+     
+    </div><!-- /card-container -->
+    
+<% end %>

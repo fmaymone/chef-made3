@@ -1,31 +1,41 @@
 <div class = "blog-content">
-	
+
 		<div class="grid mask">
 			<figure>
-			    <%= link_to image_tag(menu.documents[0].image,{class: 'img-responsive'}), menu_path(menu) %>
-				
-				
+				<div class = "menu-image">
+			    	<%= link_to image_tag(avatar(menu),{class: 'img-responsive'}), menu_path(menu) %>
+				</div>
+
 				<figcaption>
-					<h5><%= menu.title %></h5>
+					<h5><%= link_to menu.title, menu_path(menu) %></h5>
 				</figcaption><!-- /figcaption -->
 			</figure><!-- /figure -->
-			
+
 		</div><!-- /grid-mask -->
-		
+
 		<div class="categ-menu">
 			<h6><center><%= menu.tags[0].name %></center></h4>
 		</div>
 		<div class="info-menu">
-			<h7><center><%= menu.title %></center></h3>
+			<h7><center><%= link_to menu.title, menu_path(menu)  %></center></h3>
 			<br>
 			<br>
 		</div>
-		<div class = "price-menu menu-list">
-			<p>R$ <%= menu.price %> / Pessoa</p>
-			
-		</div>
+		<div class="row">
+  			<div class="col-md-6">
+  				<div class = "price-menu menu-list">
+					<p>R$ <%= menu.price %> / Pessoa</p>
+				</div>
+  			</div>
+  			<div class="col-md-6">
+  				<div class = "price-menu menu-list">
+					<%= select_tag(:number_people, options_for_select(1..100)) %>
+				</div>
+  			</div>
+  		</div>
+
 		<div class = "menu-list">
-			<%= link_to image_tag(avatar_url(menu.user),{class: 'img img-circle', height: '60px', width: '60px'}), user_path(menu.user) %> 
+			<%= link_to image_tag(avatar_url(menu.user),{class: 'img img-circle', height: '60px', width: '60px'}), user_path(menu.user) %>
 			por <b><%= menu.user.fullname %></b>
 			<br>
 			<br>

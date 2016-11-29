@@ -40,24 +40,38 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
   config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: "smtp.gmail.com",
+    port: 587,
+    domain: ENV["GMAIL_DOMAIN"],
+    authentication: "plain",
+    enable_starttls_auto: true,
+    user_name: ENV["GMAIL_USERNAME"],
+    password: ENV["GMAIL_PASSWORD"]
+  }
+
+  
+# config.action_mailer.smtp_settings = {
+#     address: 'smtp.mandrillapp.com',
+#     port: 587,
+#     enable_starttls_auto: true,
+#     user_name: 'fmaymone@gmail.com',
+#     password: 'crazydiamond',
+#     authentication: 'login'
+#   }
   # config.action_mailer.smtp_settings = {
-  #   address: "smtp.gmail.com",
-  #   port: 587,
-  #   domain: ENV["GMAIL_DOMAIN"],
-  #   authentication: "plain",
+  #   address:'smtp.mandrillapp.com',
+  #   authentication: 'plain',
+  #   domain: 'localhost',
   #   enable_starttls_auto: true,
-  #   user_name: ENV["GMAIL_USERNAME"],
-  #   password: ENV["GMAIL_PASSWORD"]
+  #   password: ENV.fetch("MANDRILL_APIKEY"),
+  #   port: "587",
+  #   user_name: ENV.fetch("MANDRILL_USERNAME")
   # }
-config.action_mailer.smtp_settings = {
-  :address   => "smtp.mandrillapp.com",
-  :port      => 587,
-  :user_name => ENV["MANDRILL_USERNAME"],
-  :password  => ENV["MANDRILL_API_KEY"],
-  :authentication => 'login',
-  :enable_starttls_auto => true,
-  :domain  => 'sociedadeavalia.com.br'
-}
+   puts "4444444444444444"
+   puts config.action_mailer.smtp_settings
+   puts "4444444444444444"
+
 
 
   config.paperclip_defaults = {

@@ -13,7 +13,7 @@
 				<div>
 					<strong><%= r.user.fullname %> <div id="stars_<%= r.id %>"></div> </strong>
 					<span class="pull-right">
-						<%= link_to "Excluir minha classificação", [@room, r], method: :delete, data: {confirm: "Are you sure?"} if current_user && current_user == r.user %>
+						<%= link_to "Excluir minha classificação", [@menu, r], method: :delete, data: {confirm: "Tem certeza?"} if current_user && current_user == r.user %>
 					</span>
 				</div>
 
