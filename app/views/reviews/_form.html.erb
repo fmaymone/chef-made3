@@ -1,13 +1,16 @@
-<%= form_for([@room, @room.reviews.new]) do |f| %>
-	
+<%= form_for([@menu, @menu.reviews.new]) do |f| %>
+
 	<div id="user_stars"></div>
 
 	<div class="form-group">
-		<%= f.text_area :comment, rows: 3, class: "form-control" %>	
+		<%= f.text_area :comment, rows: 3, class: "form-control" %>
 	</div>
-	
 
-	<%= f.hidden_field :room_id, value: @room.id %>
+
+	<%= f.hidden_field :reviewable_id, value: @menu.id %>
+	<%= f.hidden_field :reviewable_type, value: "Menu" %>
+	<%= f.hidden_field :user_id, value: current_user.id %>
+
 
 	<div class="actions">
 		<%= f.submit "Criar", class: "btn btn-primary" %>
