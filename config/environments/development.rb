@@ -50,7 +50,7 @@ Rails.application.configure do
     password: ENV["GMAIL_PASSWORD"]
   }
 
-  
+
 # config.action_mailer.smtp_settings = {
 #     address: 'smtp.mandrillapp.com',
 #     port: 587,
@@ -68,9 +68,7 @@ Rails.application.configure do
   #   port: "587",
   #   user_name: ENV.fetch("MANDRILL_USERNAME")
   # }
-   puts "4444444444444444"
-   puts config.action_mailer.smtp_settings
-   puts "4444444444444444"
+
 
 
 
