@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  
+
   # devise_for :users
   # ActiveAdmin.routes(self)
   resources :menus
@@ -9,10 +9,10 @@ Rails.application.routes.draw do
   resources :documents
   resources :plans
   root 'pages#home'
-  
-  
-  devise_for 	:users, 
-  						:path => '', 
+
+
+  devise_for 	:users,
+  						:path => '',
   						:path_names => {:sign_in => 'login', :sign_out => 'logout', :edit => 'profile'},
   						:controllers => {:omniauth_callbacks => 'omniauth_callbacks',
   														 :registrations => 'registrations'
@@ -27,15 +27,13 @@ Rails.application.routes.draw do
   resources :tests
   resources :menu_photos
   resources :reservations_rooms
-  
 
-  resources :rooms do
-    resources :reservations, only: [:create]
-  end
+
+
   resources :menus do
     resources :reservations, only: [:create]
   end
-  
+
   resources :users do
     resources :menus, only: [:create]
   end
@@ -44,32 +42,30 @@ Rails.application.routes.draw do
     resources :messages, only: [:index, :create]
   end
 
-  resources :rooms do
+  resources :menus do
     resources :reviews, only: [:create, :destroy]
   end
-  resources :rooms do
+  resources :menus do
     resources :documents, only: [:create, :destroy]
   end
-  
-  resources :rooms do
-    resources :reviews, only: [:create, :destroy]
-  end
+
+
 
   get '/preload' => 'reservations#preload'
   get '/preview' => 'reservations#preview'
 
   get '/your_trips' => 'reservations#your_trips'
   get '/seus_trabalhos' => 'reservations#seus_trabalhos'
-  
+
   post '/notify' => 'reservations#notify'
   # post '/suas_reservas' => 'reservations#suas_reservas'
   get '/suas_reservas' => 'reservations#suas_reservas'
 
   get '/search' => 'pages#search'
-  
+
   get '/pagseguro' => 'checkout#test'
-  
+
   get '/cadastrar' => 'pages#cadastrar'
-  
+
 
 end

@@ -7,13 +7,15 @@
 @import "toastr";
 @import "dropzone";
 @import "plan";
- 
+
 
 
 @import "airbnb";
 @import "main";
 @import "chefs";
 @import "meet";
+@import "login";
+@import "menus";
 //@import "icomoon";
 // @import "animate-custom";
 // @import "gmaps";
@@ -21,7 +23,7 @@
 
 
 
-// body {  
+// body {
 //   color: #565a5c;
 //   background-color: #F8F8F8;
 // }
@@ -52,13 +54,13 @@
 // // .btn-primary.btn:hover, .btn-primary.btn:focus {
 // //   border-color: #ff7e82;
 // //   border-bottom-color: #fa0008;
-// //   background-color: #ff7e82;  
+// //   background-color: #ff7e82;
 // //   outline:none;
 // // }
 
 // // .btn-primary.btn:active {
 // //   border-color: #e00007;
-// //   background-color: #e00007;  
+// //   background-color: #e00007;
 // //   outline:none;
 // // }
 
@@ -66,7 +68,7 @@
 // //   width: 100%;
 // //   border-radius: 2px;
 // //   padding: 10px 0;
-// //   margin-top: 10px; 
+// //   margin-top: 10px;
 // // }
 
 // .panel-default .panel-heading {
@@ -173,9 +175,9 @@
 // .select:before {
 //   content: '\25bc';
 //   font-size: 1.2em;
-//   position: absolute;  
+//   position: absolute;
 //   color: #82888A;
-//   top: 40px;  
+//   top: 40px;
 //   right: 30px;
 //   transform: scale(0.84, 0.42);
 // }
@@ -227,7 +229,7 @@
 //   padding: 0;
 // }
 
-// .panel-heading.preview img{  
+// .panel-heading.preview img{
 //   width: 100%;
 // }
 
@@ -267,7 +269,7 @@
 //   background-color: #F4F4F5;
 // }
 
-// #wrapper { 
+// #wrapper {
 //   width:960px;
 //   margin:0 auto;
 // }

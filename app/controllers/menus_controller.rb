@@ -1,17 +1,21 @@
 class MenusController < ApplicationController
   before_action :set_menu, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:show]
-  
+
   def index
     @menus = current_user.menus
-    
+
   end
 
-  
+
   def show
     @documents = @menu.documents
-    
-    
+    @booked = Reservation.where("reservable_id = ? AND  reservable_type = ? AND user_id = ?", @menu.id, "Menu" , current_user.id).present? if current_user
+
+    @reviews = @menu.reviews
+    @hasReview = @reviews.find_by(user_id: current_user.id) if current_user
+
+
   end
 
   # GET /menus/new
@@ -21,23 +25,23 @@ class MenusController < ApplicationController
      puts "documents sizeeeeeeeeeeeeeeeeee"
      puts @documents.size
      puts "documents sizeeeeeeeeeeeeeeeeee"
-     
+
     # redirect_to @menu
 
-     
+
   end
 
   # GET /menus/1/edit
   def edit
-    
+
     if current_user.id == @menu.user.id
-    
+
       @documents = @menu.documents
 		  @document = Document.new
 		  @document.kind = :cardapio
 		  @document.menu_id =  @menu.id
-		  
-    
+
+
     else
       redirect_to root_path, notice: "Você não tem permissão"
     end
@@ -48,22 +52,22 @@ class MenusController < ApplicationController
   def create
     @menu = Menu.new(menu_params)
     @menu.user = current_user
-    
-   
-   
+
+
+
 
     respond_to do |format|
       if @menu.save
-        if params[:images] 
+        if params[:images]
 	        params[:images].each do |image|
-	        	
+
 	          @menu.documents.create(image: image)
-	         
-	         
+
+
 	        end
 	      end
 	      @documents = @menu.documents
-	      
+
         format.html { redirect_to edit_menu_path(@menu), notice: 'Menu foi criado com sucesso!' }
         format.json { render :show, status: :created, location: @menu }
       else
@@ -81,22 +85,22 @@ class MenusController < ApplicationController
     puts "**************************************************"
     respond_to do |format|
       if @menu.update(menu_params)
-        
+
         logger.debug(@menu.title)
-		 
-		 
-    		  if params[:images] 
+
+
+    		  if params[:images]
     	        params[:images].each do |image|
-    	        	
+
     	          @menu.documents.create(image: image)
     	          @menu.documents.kind = :cardapio
-    	     
+
     	        end
     	   end
-    	
+
         	@documents = @menu.documents
-            
-   
+
+
         format.html { redirect_to @menu, notice: 'Menu atualizado com sucesso.' }
         format.json { render :show, status: :ok, location: @menu }
       else
@@ -124,13 +128,13 @@ class MenusController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def menu_params
-     params.require(:menu).permit(:description, :title, :entrada, :principal, :sobremesa ,:kind, :menu_id, :price,  tag_ids: []  )
-     
+     params.require(:menu).permit(:description, :title, :entrada, :principal, :sobremesa ,:kind, :menu_id, :price,  :tag_ids )
+
     end
-    
+
     def updateMenuTag
-     
+
      puts params[:menu]
-     
+
     end
 end

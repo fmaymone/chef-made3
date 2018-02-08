@@ -46,6 +46,7 @@ Rails.application.configure do
     domain: ENV["GMAIL_DOMAIN"],
     authentication: "plain",
     enable_starttls_auto: true,
+<<<<<<< HEAD
     user_name: "fmaymone@gmail.com",
     password: "crazydiamond"
   }
@@ -58,6 +59,34 @@ Rails.application.configure do
 #   :enable_starttls_auto => true,
 #   :domain  => 'sociedadeavalia.com.br'
 # }
+=======
+    user_name: ENV["GMAIL_USERNAME"],
+    password: ENV["GMAIL_PASSWORD"]
+  }
+
+  
+# config.action_mailer.smtp_settings = {
+#     address: 'smtp.mandrillapp.com',
+#     port: 587,
+#     enable_starttls_auto: true,
+#     user_name: 'fmaymone@gmail.com',
+#     password: 'crazydiamond',
+#     authentication: 'login'
+#   }
+  # config.action_mailer.smtp_settings = {
+  #   address:'smtp.mandrillapp.com',
+  #   authentication: 'plain',
+  #   domain: 'localhost',
+  #   enable_starttls_auto: true,
+  #   password: ENV.fetch("MANDRILL_APIKEY"),
+  #   port: "587",
+  #   user_name: ENV.fetch("MANDRILL_USERNAME")
+  # }
+   puts "4444444444444444"
+   puts config.action_mailer.smtp_settings
+   puts "4444444444444444"
+
+>>>>>>> 85558923204275fbb07ecb9f998d2a46454b9b54
 
 
   config.paperclip_defaults = {
