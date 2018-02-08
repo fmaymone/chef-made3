@@ -1,0 +1,11 @@
+Testes de Unidade
+
+Models Views, routes
+
+Funcionais
+
+Controllers
+
+Integration
+
+emulacao de um usuario. como um login ou clicar
