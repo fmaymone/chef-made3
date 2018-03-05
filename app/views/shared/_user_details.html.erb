@@ -1,14 +1,19 @@
-<div class="col-lg-6 blog-bg">
-	<div class="col-lg-4 centered">
+<div class="col-lg-6 blog-content">
+	<div class="col-lg-4 centered blog-bg">
 	<br>
 		<p><%= image_tag(avatar_url(user),{class: 'img img-circle', height: '60px', width: '60px'}) %></p>
-			
+			<% if current_user != user %>
+				<div class="row-space-2">
+					<%= link_to "Enviar Mensagem", conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post', class: "btn btn-primary wide" %>
+				</div>
+			<% end %>
+
 		<h4><%= user.fullname %></h4>
 		<h5><%= user.email %></h5>
 	</div>
-	<div class="col-lg-8 blog-content">
+	<div class="col-lg-8 ">
 		<h2>Características do Chef</h2>
-		
+
 		<p><%= user.description %></p>
 		<p><a href="#" class="icon icon-link">Veja os Menus</a></p>
 		<br>
